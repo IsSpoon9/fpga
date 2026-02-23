@@ -1,0 +1,9 @@
+C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/software/app/build/Debug/CMakeFiles/app.elf.dir
+C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/software/app/build/Debug/CMakeFiles/create-objdump.dir
+C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/software/app/build/Debug/CMakeFiles/niosv-stack-report.dir
+C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/software/app/build/Debug/CMakeFiles/create-hex.dir
+C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/software/app/build/Debug/CMakeFiles/edit_cache.dir
+C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/software/app/build/Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/software/app/build/Debug/bsp/CMakeFiles/hal2_bsp.dir
+C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/software/app/build/Debug/bsp/CMakeFiles/edit_cache.dir
+C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/software/app/build/Debug/bsp/CMakeFiles/rebuild_cache.dir

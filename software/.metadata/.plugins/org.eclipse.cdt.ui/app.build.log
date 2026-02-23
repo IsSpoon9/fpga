@@ -1,0 +1,19 @@
+12:50:00 **** Incremental Build of configuration Debug for project app ****
+"C:\\altera_lite\\25.1std\\riscfree\\build_tools\\bin\\make.exe" -j all 
+[ 94%] Built target hal2_bsp
+[ 95%] Building C object CMakeFiles/app.elf.dir/fpga.c.obj
+[ 96%] Linking C executable app.elf
+[ 96%] Built target app.elf
+[ 97%] Creating app.elf.objdump.
+[ 98%] Reporting memory available for stack + heap in app.elf.
+[100%] Creating onchip_memory2_0.hex.
+TBBmalloc: skip allocation functions replacement in ucrtbase.dll: unknown prologue for function _msize
+app.elf
+ * 95.61 KB - Program size (code + initialized data).
+ * 154.16 KB - Free for stack + heap.
+[100%] Built target niosv-stack-report
+[100%] Built target create-hex
+[100%] Built target create-objdump
+
+12:50:04 Build Finished. 0 errors, 0 warnings. (took 3s.359ms)
+

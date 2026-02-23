@@ -1,0 +1,70 @@
+// lab4.c - read and print ADC register values from ltc2308 interface
+// and display LED heartbeat on FPGA board.
+// Ed.Casas 2026-2-1
+
+/* Nios V command shell commands to rebuilt BSP and application:
+   
+cd <project folder>
+
+niosv-bsp -c -t=hal --sopcinfo=lab4.sopcinfo software/bsp/settings.bsp
+niosv-app -a=software/app -b=software/bsp -s=software/app/lab4.c
+
+To view JTAG UART output, run:
+
+juart-terminal
+
+*/
+
+
+#include "system.h"
+#include <alt_types.h>
+#include <io.h>
+#include <stdio.h>
+#include <unistd.h>
+
+int main ( void ) {
+
+   // configure the first and last channels to sample
+   
+   int firstch=0, lastch=5 ;
+
+   IOWR_32DIRECT(LTC2308_0_BASE, 0, ((lastch&7)<<3) | (firstch&7) );
+   
+   for ( int i=0 ; 1 ; i++ ) {
+
+      // display hearbeat on LEDs
+      
+      IOWR_32DIRECT(PIO_0_BASE,0,1<<(i%8)) ;
+      usleep(100000) ;
+
+      // read 32 values into a buffer (to check underrun indication)
+      
+      int buf[32];
+      
+      for ( int j=0 ; j<32 ; j++ )
+         buf[j] = IORD_32DIRECT(LTC2308_0_BASE,0);
+      
+      // print last value read from each channel (or 9999) and number
+      // of underruns
+      
+      int chval[8] ;
+      int unders ;
+
+      for ( int j=0 ; j<8 ; j++ ) chval[j] = 9999 ;
+      
+      unders = 0 ;
+      
+      for ( int j=0 ; j<32 ; j++ ) {
+    	  if ( buf[j] & 0x8000 )
+    		  unders++ ;
+    	  else
+    		  chval[ (buf[j] & 0xf000 ) >> 12 ] = buf[j] & 0xfff ;
+      }
+
+      for ( int j=0 ; j<8 ; j++ ) printf("%5d",chval[j]) ;
+      printf("  %d\n",unders) ;
+
+   }
+
+   return 0 ;
+}
