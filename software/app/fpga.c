@@ -16,7 +16,7 @@ juart-terminal
 
 */
 
-#define channel_samples 128 // CHANGE THIS TO CHANGE AMOUNT OF SAMPLES
+#define channel_samples 128 // CHANGE THIS TO CHANGE THE NUMBER OF SAMPLES STORED.
 #define read_buff 32
 
 #include "system.h"
@@ -27,26 +27,28 @@ juart-terminal
 
 int main ( void ) {
 
-   // configure the first and last channels to sample
+   // Configure the first and last channels to sample.
    int firstch=0, lastch=5 ;
    IOWR_32DIRECT(LTC2308_0_BASE, 0, ((lastch&7)<<3) | (firstch&7) );
 
-   // initialize channel 1 data
+   // Initialize channel 1 data.
+   // THIS IS THE CIRCULAR BUFFER FOR THE SAMPLES OF CHANNEL 1. 
    int channel1[channel_samples];
    for (int i=0; i<channel_samples; i++)
 	   channel1[i] = 0;
    
-   for ( int i=0 ; 1 ; i++ ) {
-      // display heartbeat on LEDs
+   int i = 0;
+   for while(1) {
+      // Display heartbeat on LEDs.
       IOWR_32DIRECT(PIO_0_BASE,0,1<<(i%8)) ;
       usleep(100000) ;
 
-      // read 32 values into a buffer (to check underrun indication)
+      // Read 32 values into a buffer (to check underrun indication).
       int buf[read_buff];
       for ( int j=0 ; j<32 ; j++ )
       		buf[j] = IORD_32DIRECT(LTC2308_0_BASE,0);
 
-      // read from each channel (or 9999) and number of underruns
+      // Read from each channel (or 9999) and number of underruns.
       int chval[8] ;
       int unders ;
       for ( int j=0 ; j<8 ; j++ ) chval[j] = 9999 ;
@@ -58,12 +60,11 @@ int main ( void ) {
     		  chval[ (buf[j] & 0xf000 ) >> 12 ] = buf[j] & 0xfff ;
       }
 
-      // shift the new values into the channel storage
-      for(int i=0; i<= channel_samples-1; i++)
-    	  channel1[i+1] = channel1[i];
-      channel1[0] = (chval[2]-chval[1]);
+	  // Shift the new values into the circular buffer for channel 1.
+      channel1[i] = (chval[2]-chval[1]);
+      i = (i + 1) % channel_samples;
 
-      // print values
+      // Print values.
       for ( int j=0 ; j< channel_samples; j++ ) printf("%d.",channel1[j]) ;
       printf("\n%d, %d\n" ,chval[1], chval[2]);
 
