@@ -1,5 +1,5 @@
 Analysis & Synthesis report for fpga
-Mon Feb 23 11:30:53 2026
+Sun Mar  1 17:43:47 2026
 Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 
 
@@ -186,7 +186,7 @@ on the Quartus Prime software download page.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Feb 23 11:30:52 2026           ;
+; Analysis & Synthesis Status     ; Successful - Sun Mar  1 17:43:47 2026           ;
 ; Quartus Prime Version           ; 25.1std.0 Build 1129 10/21/2025 SC Lite Edition ;
 ; Revision Name                   ; fpga                                            ;
 ; Top-level Entity Name           ; fpgatop                                         ;
@@ -5084,7 +5084,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:32     ;
+; Top            ; 00:00:11     ;
 +----------------+--------------+
 
 
@@ -5094,7 +5094,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
-    Info: Processing started: Mon Feb 23 11:27:34 2026
+    Info: Processing started: Sun Mar  1 17:43:01 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off fpga -c fpga
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -5218,6 +5218,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file fpgatop
     Info (12023): Found entity 1: fpgatop File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpgatop.sv Line: 15
 Info (12021): Found 1 design units, including 1 entities, in source file fifo.v
     Info (12023): Found entity 1: fifo File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fifo.v Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file circularbuffer.sv
+    Info (12023): Found entity 1: circularBuffer File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/circularBuffer.sv Line: 4
 Info (12127): Elaborating entity "fpgatop" for the top level hierarchy
 Info (12128): Elaborating entity "fpga" for hierarchy "fpga:fpga_0" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpgatop.sv Line: 27
 Info (12128): Elaborating entity "fpga_intel_niosv_m_0" for hierarchy "fpga:fpga_0|fpga_intel_niosv_m_0:intel_niosv_m_0" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga/synthesis/fpga.v Line: 114
@@ -5739,7 +5741,7 @@ Info (12128): Elaborating entity "altera_reset_controller" for hierarchy "fpga:f
 Info (12128): Elaborating entity "altera_reset_synchronizer" for hierarchy "fpga:fpga_0|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga/synthesis/submodules/altera_reset_controller.v Line: 208
 Info (12128): Elaborating entity "altera_reset_synchronizer" for hierarchy "fpga:fpga_0|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_req_sync_uq1" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga/synthesis/submodules/altera_reset_controller.v Line: 220
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2026.02.23.11:29:33 Progress: Loading sld5976d85a/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2026.03.01.17:43:24 Progress: Loading sld5976d85a/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -5780,10 +5782,10 @@ Info (21057): Implemented 5434 device resources after synthesis - the final reso
     Info (21064): Implemented 448 RAM segments
     Info (21065): Implemented 1 PLLs
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 85 warnings
-    Info: Peak virtual memory: 5209 megabytes
-    Info: Processing ended: Mon Feb 23 11:30:53 2026
-    Info: Elapsed time: 00:03:19
-    Info: Total CPU time (on all processors): 00:04:40
+    Info: Peak virtual memory: 5232 megabytes
+    Info: Processing ended: Sun Mar  1 17:43:47 2026
+    Info: Elapsed time: 00:00:46
+    Info: Total CPU time (on all processors): 00:01:03
 
 
 +------------------------------------------+

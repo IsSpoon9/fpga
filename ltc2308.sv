@@ -121,16 +121,20 @@ module ltc2308
    // read from FIFO to readdata on first clock of read cycle if not
    // empty.  Reads of empty FIFO read as 16'h8000.
    
-   logic fifoempty, fifofull ;
-   logic [15:0] fifoout ;
+	logic [15:0] buffer_out;
+	logic [7:0] read_addr;
    
-   fifo fifo0 
+   circularBuffer circularBuffer0 
       (.clock(clk),
-       .data( { prevch, sample } ), .wrreq(!fifofull && state == transfer && state_next == acquire ),
-       .q(fifoout), .rdreq(!fifoempty && !prevread && read),
-       .empty(fifoempty), .full(fifofull) ) ;
+		 .reset(reset)
+       .data_in( { prevch, sample } ), 
+		 .write_en((state == transfer && state_next == acquire) ),
+		 .read_adr(read_addr),
+       .data_out(buffer_out)) ;
 
-   assign readdata = fifoempty ? 16'h8000 : fifoout ;
+	always_ff @(posedge clk) read_addr
+		<= read ? address : read_addr;
+	assign readdata = buffer_out;
 
 endmodule
      

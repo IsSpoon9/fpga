@@ -16,8 +16,7 @@ juart-terminal
 
 */
 
-#define channel_samples 128 // CHANGE THIS TO CHANGE THE NUMBER OF SAMPLES STORED.
-#define read_buff 32
+
 
 #include "system.h"
 #include <alt_types.h>
@@ -25,33 +24,31 @@ juart-terminal
 #include <stdio.h>
 #include <unistd.h>
 
+#define C_BUFF_SIZE 256
+
 int main ( void ) {
 
    // Configure the first and last channels to sample.
    int firstch=0, lastch=5 ;
    IOWR_32DIRECT(LTC2308_0_BASE, 0, ((lastch&7)<<3) | (firstch&7) );
 
-   // Initialize channel 1 data.
-   // THIS IS THE CIRCULAR BUFFER FOR THE SAMPLES OF CHANNEL 1. 
-   int channel1[channel_samples];
-   for (int i=0; i<channel_samples; i++)
-	   channel1[i] = 0;
-   
-   int i = 0;
-   for while(1) {
+   for (int i; 1; i++) {
       // Display heartbeat on LEDs.
       IOWR_32DIRECT(PIO_0_BASE,0,1<<(i%8)) ;
       usleep(100000) ;
 
       // Read 32 values into a buffer (to check underrun indication).
-      int buf[read_buff];
-      for ( int j=0 ; j<32 ; j++ )
+      int buf[C_BUFF_SIZE];
+      for ( int j=0 ; j<C_BUFF_SIZE ; j++ )
       		buf[j] = IORD_32DIRECT(LTC2308_0_BASE,0);
 
       // Read from each channel (or 9999) and number of underruns.
+      // KEEP incase?
       int chval[8] ;
       int unders ;
-      for ( int j=0 ; j<8 ; j++ ) chval[j] = 9999 ;
+      for ( int j=0 ; j<8 ; j++ )
+    	  chval[j] = 9999 ;
+
       unders = 0 ;
       for ( int j=0 ; j<32 ; j++ ) {
     	  if ( buf[j] & 0x8000 )
@@ -61,12 +58,13 @@ int main ( void ) {
       }
 
 	  // Shift the new values into the circular buffer for channel 1.
-      channel1[i] = (chval[2]-chval[1]);
-      i = (i + 1) % channel_samples;
+      int channel1 = chval[0];
 
       // Print values.
-      for ( int j=0 ; j< channel_samples; j++ ) printf("%d.",channel1[j]) ;
-      printf("\n%d, %d\n" ,chval[1], chval[2]);
+      /* print samples */
+
+      printf("%4d\n", channel1);
+	  printf("\n");
 
    }
 

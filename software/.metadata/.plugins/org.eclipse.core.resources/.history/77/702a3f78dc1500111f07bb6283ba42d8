@@ -1,6 +1,7 @@
-// lab4.c - read and print ADC register values from ltc2308 interface
-// and display LED heartbeat on FPGA board.
+// fpga.c
 // Ed.Casas 2026-2-1
+// Ethan Siemens 2026-2-23
+
 
 /* Nios V command shell commands to rebuilt BSP and application:
    
@@ -15,6 +16,7 @@ juart-terminal
 
 */
 
+#define circular_buff 256
 
 #include "system.h"
 #include <alt_types.h>
@@ -24,36 +26,27 @@ juart-terminal
 
 int main ( void ) {
 
-   // configure the first and last channels to sample
-   
+   // Configure the first and last channels to sample.
    int firstch=0, lastch=5 ;
-
    IOWR_32DIRECT(LTC2308_0_BASE, 0, ((lastch&7)<<3) | (firstch&7) );
-   
-   for ( int i=0 ; 1 ; i++ ) {
 
-      // display hearbeat on LEDs
-      
+   for (int i; 1; i++) {
+      // Display heartbeat on LEDs.
       IOWR_32DIRECT(PIO_0_BASE,0,1<<(i%8)) ;
       usleep(100000) ;
 
-      // read 32 values into a buffer (to check underrun indication)
-      
-      int buf[32];
-      
-      for ( int j=0 ; j<32 ; j++ )
-         buf[j] = IORD_32DIRECT(LTC2308_0_BASE,0);
-      
-      // print last value read from each channel (or 9999) and number
-      // of underruns
-      
+      // Read 32 values into a buffer (to check underrun indication).
+      int buf;
+      for ( int j=0 ; j<circular_buff ; j++ )
+      		buf = IORD_32DIRECT(LTC2308_0_BASE,0);
+
+      // Read from each channel (or 9999) and number of underruns.
+      // KEEP incase?
+      /*
       int chval[8] ;
       int unders ;
-
       for ( int j=0 ; j<8 ; j++ ) chval[j] = 9999 ;
-      
       unders = 0 ;
-      
       for ( int j=0 ; j<32 ; j++ ) {
     	  if ( buf[j] & 0x8000 )
     		  unders++ ;
@@ -61,10 +54,17 @@ int main ( void ) {
     		  chval[ (buf[j] & 0xf000 ) >> 12 ] = buf[j] & 0xfff ;
       }
 
-      for ( int j=0 ; j<8 ; j++ ) printf("%5d",chval[j]) ;
-      printf("  %d\n",unders) ;
+	  // Shift the new values into the circular buffer for channel 1.
+      channel1[i] = (chval[2]-chval[1]);
+	  i = (i + 1) % channel_samples; //Doesnt allow the index to go out of bounds of the circular buffer.
+      */
+
+      // Print values.
+      printf("%d.",buf) ;
+      //printf("\n%d, %d\n" ,chval[1], chval[2]);
 
    }
 
    return 0 ;
 }
+
