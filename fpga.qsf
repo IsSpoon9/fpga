@@ -194,6 +194,15 @@ set_location_assignment PIN_AD23 -to GPIO_1[32]
 set_location_assignment PIN_AE23 -to GPIO_1[33]
 set_location_assignment PIN_AA18 -to GPIO_1[34]
 set_location_assignment PIN_AC22 -to GPIO_1[35]
+set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS ON
+set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
+set_global_assignment -name SMART_RECOMPILE ON
+set_global_assignment -name ADVANCED_PHYSICAL_OPTIMIZATION OFF
+set_global_assignment -name SYSTEMVERILOG_FILE "clkdiv (1).sv"
+set_global_assignment -name SYSTEMVERILOG_FILE trigger.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rotary_encoder.sv
+set_global_assignment -name SYSTEMVERILOG_FILE control_registers.sv
+set_global_assignment -name SYSTEMVERILOG_FILE bcd.sv
 set_global_assignment -name QIP_FILE fpga/synthesis/fpga.qip
 set_global_assignment -name SYSTEMVERILOG_FILE fpgatop.sv
 set_global_assignment -name VERILOG_FILE fifo.v

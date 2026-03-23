@@ -4,6 +4,18 @@
 			"name" : "Top",
 			"pins" : [
 				{
+					"name" : "ADC_CONVST",
+					"strict" : false
+				},
+				{
+					"name" : "ADC_SDI",
+					"strict" : false
+				},
+				{
+					"name" : "ADC_SCK",
+					"strict" : false
+				},
+				{
 					"name" : "LED[0]",
 					"strict" : false
 				},
@@ -33,18 +45,6 @@
 				},
 				{
 					"name" : "LED[7]",
-					"strict" : false
-				},
-				{
-					"name" : "ADC_CONVST",
-					"strict" : false
-				},
-				{
-					"name" : "ADC_SDI",
-					"strict" : false
-				},
-				{
-					"name" : "ADC_SCK",
 					"strict" : false
 				},
 				{

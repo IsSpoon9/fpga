@@ -151,7 +151,7 @@ AS_DATA1, DATA1              : AC6       :        :                   :         
 altera_reserved_tms          : AC7       : input  : 2.5 V             :         : 3A        : N              
 VCC_AUX                      : AC8       : power  :                   : 2.5V    :           :                
 VCC_AUX                      : AC21      : power  :                   : 2.5V    :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : AC22      :        :                   :         : 4A        :                
+enc1a                        : AC22      : input  : 2.5 V             :         : 4A        : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : AC23      :        :                   :         : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AC24      :        :                   :         : 5A        :                
 VCCIO5A                      : AC25      : power  :                   : 2.5V    : 5A        :                
@@ -204,11 +204,11 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : AE15      :        :                   :      
 GND                          : AE16      : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AE17      :        :                   :         : 4A        :                
 GND                          : AE18      : gnd    :                   :         :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : AE19      :        :                   :         : 4A        :                
+s2                           : AE19      : input  : 2.5 V             :         : 4A        : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : AE20      :        :                   :         : 4A        :                
 VCCIO4A                      : AE21      : power  :                   : 2.5V    : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AE22      :        :                   :         : 4A        :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : AE23      :        :                   :         : 4A        :                
+enc1b                        : AE23      : input  : 2.5 V             :         : 4A        : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : AE24      :        :                   :         : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AE25      :        :                   :         : 5A        :                
 LED[5]                       : AE26      : output : 2.5 V             :         : 5A        : Y              
@@ -249,7 +249,7 @@ VCCIO3B                      : AG4       : power  :                   : 2.5V    
 RESERVED_INPUT_WITH_WEAK_PULLUP : AG5       :        :                   :         : 3B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AG6       :        :                   :         : 3B        :                
 GND                          : AG7       : gnd    :                   :         :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : AG8       :        :                   :         : 4A        :                
+reset_button                 : AG8       : input  : 2.5 V             :         : 4A        : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : AG9       :        :                   :         : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AG10      :        :                   :         : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AG11      :        :                   :         : 4A        :                
@@ -269,7 +269,7 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : AG24      :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : AG25      :        :                   :         : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AG26      :        :                   :         : 4A        :                
 GND                          : AG27      : gnd    :                   :         :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : AG28      :        :                   :         : 4A        :                
+enc2b                        : AG28      : input  : 2.5 V             :         : 4A        : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : AH2       :        :                   :         : 3B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AH3       :        :                   :         : 3B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AH4       :        :                   :         : 3B        :                
@@ -295,7 +295,7 @@ s1                           : AH23      : input  : 2.5 V             :         
 RESERVED_INPUT_WITH_WEAK_PULLUP : AH24      :        :                   :         : 4A        :                
 VCCIO4A                      : AH25      : power  :                   : 2.5V    : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AH26      :        :                   :         : 4A        :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : AH27      :        :                   :         : 4A        :                
+enc2a                        : AH27      : input  : 2.5 V             :         : 4A        : Y              
 RREF                         : B1        :        :                   :         :           :                
 DNU                          : B2        :        :                   :         :           :                
 GND                          : B3        : gnd    :                   :         :           :                

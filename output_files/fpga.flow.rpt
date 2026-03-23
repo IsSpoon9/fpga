@@ -1,5 +1,5 @@
 Flow report for fpga
-Sun Mar  1 17:50:31 2026
+Mon Mar 23 16:27:59 2026
 Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 
 
@@ -41,16 +41,16 @@ on the Quartus Prime software download page.
 +-----------------------------------------------------------------------------------+
 ; Flow Summary                                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Flow Status                     ; Successful - Sun Mar  1 17:50:13 2026           ;
+; Flow Status                     ; Successful - Mon Mar 23 16:27:36 2026           ;
 ; Quartus Prime Version           ; 25.1std.0 Build 1129 10/21/2025 SC Lite Edition ;
 ; Revision Name                   ; fpga                                            ;
 ; Top-level Entity Name           ; fpgatop                                         ;
 ; Family                          ; Cyclone V                                       ;
 ; Device                          ; 5CSEMA4U23C6                                    ;
 ; Timing Models                   ; Final                                           ;
-; Logic utilization (in ALMs)     ; 2,318 / 15,880 ( 15 % )                         ;
-; Total registers                 ; 3129                                            ;
-; Total pins                      ; 14 / 314 ( 4 % )                                ;
+; Logic utilization (in ALMs)     ; 2,314 / 15,880 ( 15 % )                         ;
+; Total registers                 ; 3117                                            ;
+; Total pins                      ; 20 / 314 ( 6 % )                                ;
 ; Total virtual pins              ; 0                                               ;
 ; Total block memory bits         ; 2,100,480 / 2,764,800 ( 76 % )                  ;
 ; Total DSP Blocks                ; 0 / 84 ( 0 % )                                  ;
@@ -68,7 +68,7 @@ on the Quartus Prime software download page.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 03/01/2026 17:43:02 ;
+; Start date & time ; 03/23/2026 16:23:09 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; fpga                ;
 +-------------------+---------------------+
@@ -79,13 +79,15 @@ on the Quartus Prime software download page.
 +-------------------------------------+--------------------------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+--------------------------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 86276418131515.177241578238808                         ; --            ; --          ; --         ;
+; ADVANCED_PHYSICAL_OPTIMIZATION      ; Off                                                    ; On            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 187999850742099.177430818821728                        ; --            ; --          ; --         ;
 ; HYBRID_FLOW_NEW_EXTRACTOR           ; On                                                     ; Off           ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                                      ; --            ; --          ; --         ;
 ; MISC_FILE                           ; fpga/synthesis/../fpga.cmp                             ; --            ; --          ; --         ;
 ; MISC_FILE                           ; fpga/synthesis/../../fpga.qsys                         ; --            ; --          ; --         ;
 ; MISC_FILE                           ; fifo_bb.v                                              ; --            ; --          ; --         ;
+; NUM_PARALLEL_PROCESSORS             ; All                                                    ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family)                 ; --            ; fpgatop     ; Top        ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family)                 ; --            ; fpgatop     ; Top        ;
 ; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family)                 ; --            ; fpgatop     ; Top        ;
@@ -95,6 +97,7 @@ on the Quartus Prime software download page.
 ; SLD_FILE                            ; fpga/synthesis/fpga.regmap                             ; --            ; --          ; --         ;
 ; SLD_FILE                            ; fpga/synthesis/fpga.debuginfo                          ; --            ; --          ; --         ;
 ; SLD_INFO                            ; QSYS_NAME fpga HAS_SOPCINFO 1 GENERATION_ID 1771872123 ; --            ; --          ; --         ;
+; SMART_RECOMPILE                     ; On                                                     ; Off           ; --          ; --         ;
 ; SOPCINFO_FILE                       ; fpga/synthesis/../../fpga.sopcinfo                     ; --            ; --          ; --         ;
 ; SYNTHESIS_ONLY_QIP                  ; On                                                     ; --            ; --          ; --         ;
 ; TOP_LEVEL_ENTITY                    ; fpgatop                                                ; fpga          ; --          ; --         ;
@@ -106,11 +109,11 @@ on the Quartus Prime software download page.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:43     ; 1.0                     ; 5232 MB             ; 00:01:00                           ;
-; Fitter               ; 00:06:11     ; 1.1                     ; 7219 MB             ; 00:25:35                           ;
-; Assembler            ; 00:00:10     ; 1.0                     ; 5045 MB             ; 00:00:08                           ;
-; Timing Analyzer      ; 00:00:16     ; 2.4                     ; 5596 MB             ; 00:00:35                           ;
-; Total                ; 00:07:20     ; --                      ; --                  ; 00:27:18                           ;
+; Analysis & Synthesis ; 00:01:08     ; 1.0                     ; 5302 MB             ; 00:01:36                           ;
+; Fitter               ; 00:02:47     ; 2.2                     ; 7491 MB             ; 00:05:03                           ;
+; Assembler            ; 00:00:21     ; 1.0                     ; 5051 MB             ; 00:00:11                           ;
+; Timing Analyzer      ; 00:00:21     ; 3.0                     ; 5716 MB             ; 00:00:53                           ;
+; Total                ; 00:04:37     ; --                      ; --                  ; 00:07:43                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -119,10 +122,10 @@ on the Quartus Prime software download page.
 +----------------------+------------------+------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; idk_laptop       ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; idk_laptop       ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; idk_laptop       ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; idk_laptop       ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis ; Tanvir           ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; Tanvir           ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; Tanvir           ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; Tanvir           ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 

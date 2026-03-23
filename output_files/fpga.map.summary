@@ -1,11 +1,11 @@
-Analysis & Synthesis Status : Successful - Sun Mar  1 17:43:47 2026
+Analysis & Synthesis Status : Successful - Mon Mar 23 16:24:20 2026
 Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 Revision Name : fpga
 Top-level Entity Name : fpgatop
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
 Total registers : 2942
-Total pins : 14
+Total pins : 20
 Total virtual pins : 0
 Total block memory bits : 2,100,480
 Total DSP Blocks : 0
