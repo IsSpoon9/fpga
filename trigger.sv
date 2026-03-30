@@ -7,39 +7,44 @@
 
 module trigger (
     input  logic        clk,
-    input  logic [11:0] sample_in,   // sample coming from fifo
-    input  logic [11:0] trig_level,  // would be connected to the count value
-    input  logic [1:0]  trig_mode,   // 00=rising, 01=falling, 10=level, 11=nothing
-    input  logic        enable,
-    output logic        trigger_fire  // goes to the VGA renderer
+    input  logic        reset,
+    input  logic [11:0] sample_in,
+    input  logic [11:0] trig_level,
+    input  logic [1:0]  trig_mode,
+    input  logic [7:0]  write_adr,
+
+    output logic [7:0]  trigger_index
 );
 
-	    logic [11:0] prev_sample;
-		 logic condition_true;   // indicates if any trigger event has happened or not
-	
-		 // stores previous sample
-		 always_ff @(posedge clk) begin
-			  prev_sample <= sample_in;
-		 end
-	
-		 // trigger condition logic
-		 always_comb begin
-			  case (trig_mode)
-					2'b00: condition_true = (prev_sample < trig_level) && (sample_in >= trig_level); // rising
-					2'b01: condition_true = (prev_sample > trig_level) && (sample_in <= trig_level); // falling
-					2'b10: condition_true = (sample_in == trig_level);                               // level
-					default: condition_true = 1'b0;                                                  // off
-			  endcase
-		 end
-	
-		 // trigger pulse
-		 always_ff @(posedge clk) begin
-			  if (!enable)
-					trigger_fire <= 1'b0;
-			  else
-					trigger_fire <= condition_true;  // this trigger_fire will tell the VGA waveform renderer to start drawing
-					                                // at the index indicated by the circular buffer 
-		 end
-	
-endmodule
+    logic [11:0] prev_sample;
+    logic condition_true;
 
+    // store previous sample
+    always_ff @(posedge clk or posedge reset) begin
+        if (reset)
+            prev_sample <= 0;
+        else
+            prev_sample <= sample_in;
+    end
+
+    // trigger condition
+    always_comb begin
+        case (trig_mode)
+            2'b00: condition_true = (sample_in >= trig_level);
+            2'b01: condition_true = (sample_in <= trig_level);
+            2'b10: condition_true = (sample_in == trig_level);
+            default: condition_true = 1'b0;
+        endcase
+    end
+
+  always_ff @(posedge clk or posedge reset) begin
+    if (reset)
+        trigger_index <= 0;
+    else begin
+        if (condition_true) begin
+            trigger_index <= write_adr;
+        end
+    end
+end
+
+endmodule

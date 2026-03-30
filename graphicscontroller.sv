@@ -1,12 +1,13 @@
 // graphicscontroller.sv
 // Purpose: Turns oscillscope data into vga display
-import vgapkg::*;
 
 module graphicscontroller 
-	( input logic clk,
-//	  input logic data,
+	( input logic clk, reset,
+	  input logic [11:0] data,
+	  input logic [7:0] trigger_index,
+	  output logic [7:0] read_adr,
 	  output logic [13:0] gpio
-	  );
+	);
 	
 	// Clock divide for vga
 	logic clkvga;
@@ -16,6 +17,7 @@ module graphicscontroller
 		.clkout(clkvga)
 	);
 	
+
 	// Connection wires
 	logic [2:0] rgb;
 	logic [15:0] xpixel, ypixel;
@@ -23,9 +25,11 @@ module graphicscontroller
 	// Convert data to rgb
 	datargb 
 	rgb0(
-		//.clk(clkvga),
-		.n_xpixel(xpixel),
-		.n_ypixel(ypixel),
+		.data(data),
+		.read_adr(read_adr),
+		.trigger_index(trigger_index),
+		.xpixel(xpixel),
+		.ypixel(ypixel),
 		.outputRGB(rgb)
 	);
 	
@@ -33,9 +37,10 @@ module graphicscontroller
 	vgacontroller 
 	vga_c0(
 		.clk(clkvga),
+		.reset(reset),
 		.inputRGB(rgb),
-		.n_xpixel(xpixel),
-		.n_ypixel(ypixel),
+		.xpixel(xpixel),
+		.ypixel(ypixel),
 		.gpio(gpio)
 	);
 	

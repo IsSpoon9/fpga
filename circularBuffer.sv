@@ -3,24 +3,27 @@
 
 module circularBuffer
    ( input logic clk, reset,  // 80 MHz (12.5ns) clock and reset
-	
-     input logic [15:0] data_in, 
+     input logic [11:0] data_in, 
      input logic write_en,
-	  
 	  input logic [7:0] read_adr,
-	  output logic [15:0] data_out
+	  
+	  output logic [11:0] data_out,
+	  output logic [7:0] write_ptr
      ) ;
 	  
-	logic [7:0] write_ptr;
-	logic [15:0] mem[255:0];
+	
+	logic [11:0] mem[255:0];
 		
 	always_ff @(posedge clk) begin
-		if(reset)
+		if(reset) begin
 			write_ptr <= 0;
+			for (int i = 0; i < 256; i++)
+				mem[i] <= 0;
+		end
 		
-		if(write_en) begin
+		else if(write_en) begin
 			mem[write_ptr] <= data_in;
-			write_ptr <= write_ptr + 1'b1;
+			write_ptr <= write_ptr + 1;
 		end
 	end
 	

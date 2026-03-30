@@ -2,11 +2,12 @@
 // Purpose: Calculates the visible pixels for vga
 import vgapkg::* ;
 
+
 module screenpixel_counter(
 	input logic clk,
-	input vgaIndex hcount, vcount,
+	input [15:0] hcount, vcount,
 	input logic visible,
-	output vgaIndex xpixel, ypixel
+	output [15:0] xpixel, ypixel
 	);
 	
 	always_ff@(posedge clk) begin

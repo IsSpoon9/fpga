@@ -1,11 +1,10 @@
 //vgacontroller.sv
 // Purpose: Controls the gpio ports based on input, sends current pixel being edited
-import vgapkg::*;
 
 module vgacontroller
-  ( input logic clk,
+  ( input logic clk, reset,
 	 input logic [2:0] inputRGB,
-	 output logic [15:0] n_xpixel, n_ypixel,
+	 output logic [15:0] xpixel, ypixel,
     output logic [13:0] gpio
 	 ) ;
 	
@@ -17,6 +16,7 @@ module vgacontroller
 	horizontal_counter
 	hcounter(
 		.clk(clk),
+		.reset(reset),
 		.en_vcounter(en_vcount),
 		.hcounter(hcount)
 	);
@@ -25,13 +25,14 @@ module vgacontroller
 	vertical_counter
 	vcounter(
 		.clk(clk),
+		.reset(reset),
 		.en_vcounter(en_vcount),
 		.vcounter(vcount)
 	);
 	
 	// Count Pixels
-	assign n_xpixel = (hcount >= 143) ? (hcount - 143) : '0;
-   assign n_ypixel = (vcount >= 35) ? (vcount - 35) : '0;
+	assign xpixel = (hcount > 143) ? (hcount - 143) : '0;
+   assign ypixel = (vcount > 35) ? (vcount - 35) : '0;
 	
 	// Set the sync pulses
 	logic hsync, vsync;

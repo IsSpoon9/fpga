@@ -1,23 +1,33 @@
 //datargb.sv
 //Purpose: turns the data into rgb signals
-import vgapkg::*;
 
 module datargb (
-//	input logic clk,
-//	input logic Data,
-//	output logic [11:0] readData,
-	input vgaIndex n_xpixel, n_ypixel,
-	output vgaColour outputRGB
+   input logic [11:0] data,
+	output logic [7:0] read_adr, 
+	input logic [7:0] trigger_index,
+	input logic [15:0] xpixel, ypixel,
+	output logic [2:0] outputRGB
 	);
+
 	
-	
+	logic [7:0] data_height;
+		
 	always_comb begin
-		if(n_xpixel == 200 || n_xpixel == 300 || 
-			n_ypixel == 200 || n_ypixel == 300)
-			outputRGB <= 3'b010; 
-		else
-			outputRGB <= 3'b000;
+	   outputRGB  = 3'b000;
+		read_adr   = 0;
+		data_height = 0;
+		
+		if(xpixel >= 145 && xpixel <= 400 ) begin
+			read_adr = trigger_index + (xpixel[7:0] - 8'd145);
+			data_height = (data*200/4095 + 200);
 			
+			if (ypixel == data_height || ypixel == data_height + 1)
+				outputRGB = 3'b001; 
+			
+			else if(ypixel >= 200 && ypixel <= 400)
+				outputRGB = 3'b101; 
+		end
+		
 		// Add more here to display more
 	end
 	
