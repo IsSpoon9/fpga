@@ -5,46 +5,57 @@
 // ADC sample to the previous sample and the user‑selected trigger level.
 // This module is controlled by the control.sv 
 
-module trigger (
-    input  logic        clk,
-    input  logic        reset,
-    input  logic [11:0] sample_in,
-    input  logic [11:0] trig_level,
-    input  logic [1:0]  trig_mode,
-    input  logic [7:0]  write_adr,
-
-    output logic [7:0]  trigger_index
+module trigger 
+#( DATA_WIDTH = 12, ADDR_WIDTH = 8 )
+(
+	input logic clk, // System Clock
+	input logic reset, // Reset
+	input logic [DATA_WIDTH-1:0] data_in,   // Incoming Data
+	input logic [DATA_WIDTH-1:0] trig_level,// User Decided Trigger Level
+	input logic [1:0]  trig_mode, // User Decided Trigger Mode
+	output logic trigger_edge // Did the Trigger Fire?
 );
 
-    logic [11:0] prev_sample;
-    logic condition_true;
+	typedef enum {RISING = 0, FALLING = 1, LEVEL = 2, ALWAYS = 3} state_trig ;
 
-    // store previous sample
-    always_ff @(posedge clk or posedge reset) begin
-        if (reset)
-            prev_sample <= 0;
-        else
-            prev_sample <= sample_in;
-    end
+	logic [DATA_WIDTH-1:0] prev_data;
+	logic condition_met;
+	logic trigger_fire;
 
-    // trigger condition
-    always_comb begin
-        case (trig_mode)
-            2'b00: condition_true = (sample_in >= trig_level);
-            2'b01: condition_true = (sample_in <= trig_level);
-            2'b10: condition_true = (sample_in == trig_level);
-            default: condition_true = 1'b0;
-        endcase
-    end
+	always_ff @(posedge clk) begin
+		
+		// Reset the previous data
+		if (reset)
+			prev_data <= '0; 
 
-  always_ff @(posedge clk or posedge reset) begin
-    if (reset)
-        trigger_index <= 0;
-    else begin
-        if (condition_true) begin
-            trigger_index <= write_adr;
-        end
-    end
-end
+		// No Reset
+		else begin
 
+		// Store Data
+		prev_data <= data_in;
+
+		// Testing Modes
+		case (trig_mode)
+			RISING:    condition_met <= (data_in >= trig_level && prev_data < trig_level);  // Rising Edge
+			FALLING:   condition_met <= (data_in <= trig_level && prev_data > trig_level);  // Falling Edge
+			LEVEL:     condition_met <= (data_in == trig_level && prev_data == trig_level); // Level
+			default:   condition_met <= 1; 															  // Always fire trigger
+		endcase
+
+		// Set trigger level
+		trigger_fire <= condition_met ? 1 : 0;
+
+		end
+	end
+	
+	// Get the edge of trigger
+	logic trigger_prev;
+
+	always_ff @(posedge clk) begin
+		 trigger_prev <= trigger_fire;
+	end
+
+	assign trigger_edge = trigger_fire & ~trigger_prev;
+	
+	
 endmodule

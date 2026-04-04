@@ -1,8 +1,13 @@
 // ltc2308.sv - LTC 2308 ADC interface
-// Made By: Ed Casas 2026-2-1
-// Edited: 2026, Feb 06
+// Ed Casas 2026-2-1
 
-// Interface from LTC 2308 500 kHz (2us) 8-channel ADC to Circular Buffer
+// FIXME: add your name and date here
+// Ethan Siemens
+// 2026, Feb 06
+
+// Interface from LTC 2308 500 kHz (2us) 8-channel ADC to Avalon MM
+// bus.  Configures the ADC as single-ended unipolar which is how it's
+// connected on the DE0-Nano-SoC FPGA board.
 
 // This interface reads sequentially from channels between 'firstch'
 // and 'lastch' which are configured by writing a 6-bit value in
@@ -12,22 +17,31 @@
 // continuously at 2us per sample.
 
 module ltc2308
-   ( input logic clk, reset,    // 50 MHz clock and reset
+   ( input logic clk, reset,    // 50 MHz (12.5ns) clock and reset
      input logic sdo,           // serial data from ADC
 
      output logic convst, sck, sdi, // ADC control
+
+     output logic [11:0] sample_out,
+	  output logic adc_ready
 	  
-	  output logic [11:0] sample, //Buffer Controls
-	  output logic write_en
-	  
-	  
+
      ) ;
 
-   // ADC states and state duration counter  
+	// For cpu
+	logic [31:0] readdata; // Avalon MM data bus
+   logic [31:0] writedata;
+   logic read, write;
+	  
+   // ADC states and state duration counter
+   
    typedef enum { start, convert, transfer, acquire } state_t ;
+   
    state_t state, state_next ;
+
    logic [6:0] count, count_next ;
-	`define set_next(s,c) begin state_next=(s); count_next=$bits(count)'(c)-1'b1; end
+
+`define set_next(s,c) begin state_next=(s); count_next=$bits(count)'(c)-1'b1; end
 
    always_comb begin
       if ( reset )
@@ -58,7 +72,6 @@ module ltc2308
    // ADC (incremented at end of conversion), configured channel is
    // saved in 'prevch'
    logic [2:0] firstch, lastch, ch, prevch ;
-	
 
    // Increment the ADC input channel, starting at 'firstch' and
    // wrapping around when it reaches 'lastch'.
@@ -71,8 +84,7 @@ module ltc2308
 //         prevch <= ch ;
 //      end
 //   end
-
-	  assign ch = 3'd0;
+	assign ch = '0;
 
    // ADC configuration on SDI
    logic [11:0] adccfg ;
@@ -81,10 +93,27 @@ module ltc2308
       sdi <= state_next == transfer ? adccfg[count_next >> 1] : '0 ;
 
    // ADC data on SDO
+   logic [11:0] sample ;
    always_ff @(posedge clk)
       sample <= state == transfer && !sck ? { sample[10:0], sdo } : sample ;
-		
-	assign write_en = (state == transfer && state_next == acquire) ;
-   
+
+   // A CPU write over the Avalon MM bus sets the first and last
+   // channels to be sampled.
+   always_ff @(posedge clk)
+      if ( write )
+         { lastch, firstch } <= 6'b000000;
+
+   // Register the read signal to detect the first clock of a CPU read
+   // cycle.
+   logic prevread ;
+   always_ff @(posedge clk) 
+      prevread <= read ;
+	
+   always_ff @(posedge clk) 	begin
+		adc_ready <= (state == transfer && state_next == acquire) ;
+		if(adc_ready)
+			sample_out <= sample;
+	end
+
 endmodule
      

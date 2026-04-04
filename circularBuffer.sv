@@ -1,33 +1,39 @@
 // circularBuffer.sv
-// Ethan Siemens 2026-3-1
+// Purpose: Stores Values for the oscilliscope
+// Ethan Siemens 03-31-26
 
 module circularBuffer
-   ( input logic clk, reset,  // 80 MHz (12.5ns) clock and reset
-     input logic [11:0] data_in, 
-     input logic write_en,
-	  input logic [7:0] read_adr,
-	  
-	  output logic [11:0] data_out,
-	  output logic [7:0] write_ptr
-     ) ;
-	  
+#( DATA_WIDTH = 12, ADDR_WIDTH = 8 )
+(	input logic clkin, // System Clock
+	input logic clkout, // Vga Clock
+	input logic reset, // Reset Button
+
+	input logic write_en, // When to write
+	input logic [ADDR_WIDTH-1:0] write_addr, // Where to write
+	input logic [ADDR_WIDTH-1:0] read_addr, // Where to read
+
+	input logic [DATA_WIDTH-1:0] data_in, // Sample in
+	output logic [DATA_WIDTH-1:0] data_out // Sample out
+);
 	
-	logic [11:0] mem[255:0];
+	// BEHOLD, THE OSCILLISCOPE STORAGE
+	logic [DATA_WIDTH-1:0] mem[0:2**ADDR_WIDTH-1]; 
+
+	always_ff @(posedge clkin) begin
 		
-	always_ff @(posedge clk) begin
-		if(reset) begin
-			write_ptr <= 0;
-			for (int i = 0; i < 256; i++)
+		// Reset Storage
+		if(reset) begin 
+			for (int i = 0; i < 2**ADDR_WIDTH; i++)
 				mem[i] <= 0;
 		end
 		
-		else if(write_en) begin
-			mem[write_ptr] <= data_in;
-			write_ptr <= write_ptr + 1;
-		end
+		// Write Values
+		else if (write_en) 
+			mem[write_addr] <= data_in;
+			
 	end
 	
-	assign data_out = mem[read_adr];
-	  
+	always_ff @(posedge clkout)
+		data_out <= mem[read_addr];
 	  
 endmodule

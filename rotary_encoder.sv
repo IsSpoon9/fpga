@@ -1,39 +1,31 @@
 module rotary_encoder (
-    input  logic clk50,        
-    input  logic reset_n,
-    input  logic enc_a,
-    input  logic enc_b,
-
-    output logic up_pulse,
-    output logic down_pulse
-);
-
-    // Clock divider for the rotary encoder and LED Mux
-    logic clk;
-    clkdiv clk1 ( clk50 , clk);
-
+		input logic clk, reset, // Clock
+		input logic enca, encb, // Encoder nodes
+		output logic up, down // Direction
+	);
+	
     logic [3:0] state;
-    logic up, enable;
+    logic upD, enable;
 
-    always_ff @(posedge clk or negedge reset_n) begin
-        if (!reset_n)
+    always_ff @(posedge clk) begin
+        if (reset)
             state <= 4'b0000;
         else
-            state <= {state[1:0], enc_a, enc_b};
+            state <= {state[1:0], enca, encb};
     end
 
-    always_ff @(posedge clk or negedge reset_n) begin
-        if (!reset_n)
-            up <= 1'b0;
+    always_ff @(posedge clk) begin
+        if (reset)
+            upD <= 1'b0;
         else
-            up <= (state == 4'b1101) ||
+            upD <= (state == 4'b1101) ||
                   (state == 4'b0100) ||
                   (state == 4'b0010) ||
                   (state == 4'b1011);
     end
 
-    always_ff @(posedge clk or negedge reset_n) begin
-        if (!reset_n)
+    always_ff @(posedge clk) begin
+        if (reset)
             enable <= 1'b0;
         else
             enable <= (state == 4'b1101) ||
@@ -46,7 +38,8 @@ module rotary_encoder (
                       (state == 4'b0111);
     end
 
-    assign up_pulse   =  up & enable;
-    assign down_pulse = !up & enable;
+    assign up   =  upD & enable;
+    assign down = !upD & enable;
 
+	
 endmodule

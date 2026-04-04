@@ -1,114 +1,179 @@
 // top_vga.sv
 
-module top_vga 
-  ( input logic clk50, s1, s2, //Clk and Reset
-  
-	 //VGA
-    output logic [13:0] GPIO_0,
+module top_vga (
+		input logic clk50, s1, s2, // clk, Reset, Trigger
+		//Encoders
+		input  logic enc1a, enc1b,// Encoder #1 (trigger level)
+		input  logic enc2a, enc2b, // Encoder #2 (timebase) 
+		//VGA
+		output logic [13:0] GPIO_0,
+		// ADC
+		input  logic ADC_SDO,
+		output logic ADC_CONVST, ADC_SDI, ADC_SCK 
+	) ;
+	 
+	localparam SYS_CLK = 50_000_000;
+	
+	localparam DATA_WIDTH = 12; 
+	localparam ADDR_WIDTH = 8;
+	
+	
+	// Logic Values  ----------------------------------------------
+	
+	// Buttons
+	logic reset, trigger; 
+	
+	// ADC
+	logic [DATA_WIDTH-1:0] adc_data;
+	
+	// Input_Control
+	logic [DATA_WIDTH-1:0] trig_level;
+	logic [1:0] trig_mode;
+	logic [DATA_WIDTH-1:0] timebase_sel; // Can change
+	
+	// Trigger
+	logic trigger_fire;
+	
+	// Timebase Module //Can Change
+	logic sample_tick;
+	
+	// Circular Buffer
+	logic [DATA_WIDTH-1:0] buffer_data;
+	logic [ADDR_WIDTH-1:0] read_addr;
+	
+	// Waveform Renderer
+	logic [2:0] rgb;
+	logic [9:0] xpixel, ypixel;
+	
+	
+	// CLOCKS & COUNTERS ----------------------------------------------
+	
+	// Encoder Clock -> 1kHz
+	logic clk1; 
+	clkdiv 
+	c_1k(
+		.clkin(clk50), 
+		.clkout(clk1)
+	);
+	
+	// VGA Clock
+	logic clkvga;
+	clkdiv #(.fin(SYS_CLK), .fout(25_000_000)) 
+	c_vga(
+		.clkin(clk50), 
+		.clkout(clkvga)
+	);
+	
+	// Write address counter
+	logic [ADDR_WIDTH-1:0] write_addr;
+	always_ff @(posedge clk50) begin
+		if (reset)
+			write_addr <= 0;
 
-    input  logic enc1a, enc1b,// Encoder #1 (trigger level)
-    input  logic enc2a, enc2b, // Encoder #2 (timebase) 
-	 
-    // ADC
-    input  logic ADC_SDO,
-    output logic ADC_CONVST, ADC_SDI, ADC_SCK
-	 
-    ) ;
+		else if (trigger_fire)
+			write_addr <= 0;
+
+		else if (sample_tick)
+			write_addr <= write_addr + 1;
+	end
 	
-	// Setup Reset Pin
-	logic reset;
+	// INPUTS ----------------------------------------------
+	
+	// Button Inversions
 	assign reset = !s1;
-	
-	// Rotary Encoders
-   logic enc_level_up, enc_level_down;
-   logic enc_time_up, enc_time_down;
-	
-	rotary_encoder level_enc (
-      .clk50(clk50),
-      .reset_n(!reset),
-      .enc_a(enc1a),
-      .enc_b(enc1b),
-      .up_pulse(enc_level_up),
-		.down_pulse(enc_level_down)
-	);   
-   rotary_encoder time_enc (
-		.clk50(clk50),
-      .reset_n(!reset),
-      .enc_a(enc2a),
-      .enc_b(enc2b),
-      .up_pulse(enc_time_up),
-      .down_pulse(enc_time_down)
-   );	
-	
-	// Encoder Controller
-	logic [11:0] trig_level, timebase;
-   logic [1:0]  trig_mode;
-	
-   control_registers u0 (
-		.clk(clk50),
-      .reset(reset),                 // active-high reset inside module
-      .trigger_mode(!s2),                     // mode button
-      .enc_level_up(enc_level_up),
-      .enc_level_down(enc_level_down),
-      .enc_time_up(enc_time_up),
-      .enc_time_down(enc_time_down),
-      .trig_level(trig_level),
-      .trig_mode(trig_mode),
-      .timebase(timebase)
-    );
-	
+	assign trigger = !s2;
 
 	// ADC
-	logic [11:0] adc_sample;
-	logic write_en;   
-	
-	ltc2308 ltc2308_0 (
+	ltc2308 
+	ltc2308_0 (
 		.clk(clk50),
       .reset(reset),
       .sdo(ADC_SDO),
       .convst(ADC_CONVST),
       .sdi(ADC_SDI),
       .sck(ADC_SCK),
-		.sample(adc_sample),
-	   .write_en(write_en)
-	  );
-	
-	
-
-
-	// Stored values
-	logic [11:0] buffer_sample;
-	logic [7:0] read_addr, write_adr;
-	
-	circularBuffer cb (
-		 .clk(clk50),
-		 .reset(reset),
-		 .data_in(adc_sample),
-		 .write_en(write_en),
-		 .read_adr(read_addr),
-		 .data_out(buffer_sample),
-		 .write_ptr(write_adr)
+		.sample_out(adc_data),
+		.adc_ready()
 	);
 	
-	// Trigger Control
-	logic [7:0] trigger_index;
-   trigger trig0 (
-		.clk(clk50),
+	// Rotary Logic
+	input_control #(.DATA_WIDTH(DATA_WIDTH), .ADDR_WIDTH(ADDR_WIDTH)) 
+	input_0(
+		.clk(clk1),
 		.reset(reset),
-      .sample_in(buffer_sample),
-      .trig_level(trig_level),
-      .trig_mode(trig_mode),
-		.write_adr(write_adr),
-      .trigger_index(trigger_index)
-    );
+		.trigger(trigger),
+		.enc1a(enc1a), .enc1b(enc1b),// Encoder #1 (trigger level)
+		.enc2a(enc2a),	.enc2b(enc2b), // Encoder #2 (timebase) 
+		.trig_level(trig_level),
+		.trig_mode(trig_mode),
+		.timebase_sel(timebase_sel)
+	);
 	
-	// Controls Screen
-	graphicscontroller graphics0 (
+	// Computation ------------------------------------------
+
+	// Trigger
+	trigger #(.DATA_WIDTH(DATA_WIDTH), .ADDR_WIDTH(ADDR_WIDTH)) 
+	trig_0(
 		.clk(clk50),
 		.reset(reset),
-		.trigger_index(trigger_index),
-		.read_adr(read_addr),
-		.data(buffer_sample),
+		.data_in(adc_data),
+		.trig_level(trig_level),
+		.trig_mode(trig_mode),
+		.trigger_edge(trigger_fire)
+	);
+	
+	// Timebase module
+	timebase
+	time_0(
+		.clk(clk50),
+		.reset(reset),
+		.timebase_sel(timebase_sel),
+		.sample_tick(sample_tick)
+	);
+	
+	
+	// Stored values ----------------------------------------------------
+	circularBuffer #(.DATA_WIDTH(DATA_WIDTH), .ADDR_WIDTH(ADDR_WIDTH)) 
+	cb_0 (
+		.clkin(clk50),
+		.clkout(clkvga),
+		.reset(reset),
+		.write_en(sample_tick),
+		.write_addr(write_addr),
+		.read_addr(read_addr),
+		.data_in(adc_data),
+		.data_out(buffer_data)
+	);
+	
+	// Display ----------------------------------------------------
+	
+	// Renders the Waveform
+	waveform_renderer 
+	wve0(
+		// Essential
+		.clk(clkvga),
+		.xpixel(xpixel),
+		.ypixel(ypixel),
+		.data_in(buffer_data),
+		.write_addr(write_addr),
+		.outputRGB(rgb),
+		.read_addr(read_addr),
+		// Non Essential
+		.trig_level(trig_level),
+		.trig_mode(trig_mode),
+		.time_scale(timebase_sel)
+	);
+	
+	// Controls VGA Port - does the actual displaying
+	vgacontroller 
+	vga0(
+		.clk(clkvga),
+		.reset(reset),
+		.inputRGB(rgb),
+		.vsync(vsync), // Hide?
+		.hsync(hsync), // Hide?
+		.xpixel(xpixel),
+		.ypixel(ypixel),
 		.gpio(GPIO_0)
 	);
 	
