@@ -44,6 +44,7 @@ module oscilliscope_top (
 	// Waveform Renderer
 	logic [2:0] rgb;
 	logic [9:0] xpixel, ypixel;
+	logic rendering;
 	
 	
 	// CLOCKS & COUNTERS ----------------------------------------------
@@ -65,7 +66,7 @@ module oscilliscope_top (
 	);
 	
 	// Write address counter
-	logic [ADDR_WIDTH-1:0] write_addr;
+	logic [ADDR_WIDTH-1:0] write_addr, write_addr_sync;
 	always_ff @(posedge clk50) begin
 		if (reset)
 			write_addr <= 0;
@@ -76,6 +77,9 @@ module oscilliscope_top (
 		else if (sample_tick)
 			write_addr <= write_addr + 1;
 	end
+	
+	always_ff @(posedge clkvga)
+		write_addr_sync <= write_addr;
 	
 	// INPUTS ----------------------------------------------
 	
@@ -133,16 +137,34 @@ module oscilliscope_top (
 	
 	
 	// Stored values ----------------------------------------------------
-	circularBuffer #(.DATA_WIDTH(DATA_WIDTH), .ADDR_WIDTH(ADDR_WIDTH)) 
-	cb_0 (
-		.clkin(clk50),
-		.clkout(clkvga),
-		.reset(reset),
-		.write_en(sample_tick),
-		.write_addr(write_addr),
-		.read_addr(read_addr),
-		.data_in(adc_data),
-		.data_out(buffer_data)
+	// if all else fails
+//	circularBuffer #(.DATA_WIDTH(DATA_WIDTH), .ADDR_WIDTH(ADDR_WIDTH)) 
+//	cb_0 (
+//		.clkin(clk50),
+//		.clkout(clkvga),
+//		.reset(reset),
+//		//Write Logic
+//		.write_en(sample_tick),
+//		.write_addr(write_addr),
+//		.data_in(adc_data),
+//		
+//		//Read Logic
+//		.read_en(rendering),
+//		.read_addr(read_addr),
+//		.data_out(buffer_data)
+//	);
+
+	// Altera Config -> Dual Port RAM
+	dual_port_ram
+	dp_0 (
+		.data(adc_data),
+		.rdaddress(read_addr),
+		.rdclock(clkvga),
+		.wraddress(write_addr_sync),
+		.wrclock(clk50),
+		.wren(sample_tick),
+		.q(buffer_data)
+		
 	);
 	
 	// Display ----------------------------------------------------
@@ -155,7 +177,7 @@ module oscilliscope_top (
 		.xpixel(xpixel),
 		.ypixel(ypixel),
 		.data_in(buffer_data),
-		.write_addr(write_addr),
+		.write_addr(write_addr_sync),
 		.outputRGB(rgb),
 		.read_addr(read_addr),
 		// Non Essential

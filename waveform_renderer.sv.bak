@@ -45,16 +45,10 @@ module waveform_renderer
 	// Point of no return ----------------------------------------------------
 	logic [DATA_WIDTH-1:0] sample;
 	logic [9:0] scaled_volt, scaled_trig;
-	logic [ADDR_WIDTH-1:0] base_sync;
 
-	// sync data
-	always_ff @(posedge clk) begin
+	
+	always_ff @(posedge clk)
 		 sample <= data_in;
-		 
-		 if (xpixel == 0 && ypixel == 0) // start of frame
-			base_sync <= write_addr;
-			
-	end
 
 	always_comb begin
 		
@@ -63,11 +57,10 @@ module waveform_renderer
 		read_addr   = '0;
 		scaled_volt = '0;
 		scaled_trig = scale(trig_level);
-	
 
 		// Only compute inside scope region
 		if (xpixel >= X_LEFT && xpixel < X_RIGHT) begin
-			read_addr = base_sync - (X_RIGHT - xpixel);
+			read_addr = write_addr - (X_RIGHT - xpixel);
 			scaled_volt = scale(sample);
 		end
 

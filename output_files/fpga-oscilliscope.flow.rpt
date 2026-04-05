@@ -1,5 +1,5 @@
 Flow report for fpga-oscilliscope
-Sat Apr  4 13:45:13 2026
+Sun Apr  5 01:27:41 2026
 Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 
 
@@ -41,18 +41,18 @@ on the Quartus Prime software download page.
 +-----------------------------------------------------------------------------------+
 ; Flow Summary                                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Flow Status                     ; Successful - Sat Apr  4 13:45:03 2026           ;
+; Flow Status                     ; Successful - Sun Apr  5 01:27:35 2026           ;
 ; Quartus Prime Version           ; 25.1std.0 Build 1129 10/21/2025 SC Lite Edition ;
 ; Revision Name                   ; fpga-oscilliscope                               ;
 ; Top-level Entity Name           ; oscilliscope_top                                ;
 ; Family                          ; Cyclone V                                       ;
 ; Device                          ; 5CSEMA4U23C6                                    ;
 ; Timing Models                   ; Final                                           ;
-; Logic utilization (in ALMs)     ; 1,999 / 15,880 ( 13 % )                         ;
-; Total registers                 ; 3280                                            ;
+; Logic utilization (in ALMs)     ; 481 / 15,880 ( 3 % )                            ;
+; Total registers                 ; 207                                             ;
 ; Total pins                      ; 25 / 314 ( 8 % )                                ;
 ; Total virtual pins              ; 0                                               ;
-; Total block memory bits         ; 0 / 2,764,800 ( 0 % )                           ;
+; Total block memory bits         ; 264 / 2,764,800 ( < 1 % )                       ;
 ; Total DSP Blocks                ; 2 / 84 ( 2 % )                                  ;
 ; Total HSSI RX PCSs              ; 0                                               ;
 ; Total HSSI PMA RX Deserializers ; 0                                               ;
@@ -68,7 +68,7 @@ on the Quartus Prime software download page.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/04/2026 13:43:41 ;
+; Start date & time ; 04/05/2026 01:26:52 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; fpga-oscilliscope   ;
 +-------------------+---------------------+
@@ -80,9 +80,10 @@ on the Quartus Prime software download page.
 ; Assignment Name                     ; Value                                  ; Default Value     ; Entity Name      ; Section Id ;
 +-------------------------------------+----------------------------------------+-------------------+------------------+------------+
 ; ADVANCED_PHYSICAL_OPTIMIZATION      ; Off                                    ; On                ; --               ; --         ;
-; COMPILER_SIGNATURE_ID               ; 167804914516307.177533542109076        ; --                ; --               ; --         ;
+; COMPILER_SIGNATURE_ID               ; 167804914516307.177537761228772        ; --                ; --               ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --                ; --               ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --                ; --               ; --         ;
+; MISC_FILE                           ; dual_port_ram_bb.v                     ; --                ; --               ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --                ; oscilliscope_top ; Top        ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --                ; oscilliscope_top ; Top        ;
 ; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --                ; oscilliscope_top ; Top        ;
@@ -98,11 +99,11 @@ on the Quartus Prime software download page.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:12     ; 1.0                     ; 4920 MB             ; 00:00:22                           ;
-; Fitter               ; 00:01:02     ; 1.3                     ; 6385 MB             ; 00:01:40                           ;
-; Assembler            ; 00:00:05     ; 1.0                     ; 5029 MB             ; 00:00:05                           ;
-; Timing Analyzer      ; 00:00:09     ; 2.7                     ; 5405 MB             ; 00:00:19                           ;
-; Total                ; 00:01:28     ; --                      ; --                  ; 00:02:26                           ;
+; Analysis & Synthesis ; 00:00:11     ; 1.0                     ; 4903 MB             ; 00:00:23                           ;
+; Fitter               ; 00:00:26     ; 1.1                     ; 6333 MB             ; 00:00:41                           ;
+; Assembler            ; 00:00:04     ; 1.0                     ; 4997 MB             ; 00:00:04                           ;
+; Timing Analyzer      ; 00:00:05     ; 1.5                     ; 5340 MB             ; 00:00:07                           ;
+; Total                ; 00:00:46     ; --                      ; --                  ; 00:01:15                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

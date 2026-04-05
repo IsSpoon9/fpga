@@ -8,10 +8,10 @@ module timebase
 );
 
 	logic [32:0] counter;
-   //logic [32:0] divider;
+   logic [32:0] divider;
 
 	// Assign divisions based on User input
-	//assign divider = (timebase_sel);
+	assign divider = (1 << timebase_sel);
 	
 	always_ff @(posedge clk) begin
 		
@@ -24,8 +24,8 @@ module timebase
 		// Count for pulse
 		else begin
 			
-			// Reset if count too high -> Put Divider here if need be
-			if(counter > timebase_sel) begin
+			// Reset if count too high 
+			if(counter >= divider -1) begin
 				counter <= '0;
 				sample_tick <= 1;
 			end

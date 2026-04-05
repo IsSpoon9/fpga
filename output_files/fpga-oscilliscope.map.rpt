@@ -1,5 +1,5 @@
 Analysis & Synthesis report for fpga-oscilliscope
-Sat Apr  4 13:43:53 2026
+Sun Apr  5 01:27:03 2026
 Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 
 
@@ -13,25 +13,31 @@ Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Analysis & Synthesis DSP Block Usage Summary
-  9. Registers Removed During Synthesis
- 10. General Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Parameter Settings for User Entity Instance: clkdiv:c_1k
- 13. Parameter Settings for User Entity Instance: clkdiv:c_vga
- 14. Parameter Settings for User Entity Instance: input_control:input_0
- 15. Parameter Settings for User Entity Instance: trigger:trig_0
- 16. Parameter Settings for User Entity Instance: circularBuffer:cb_0
- 17. Parameter Settings for User Entity Instance: waveform_renderer:wve0
- 18. Parameter Settings for User Entity Instance: vgacontroller:vga0|horizontal_counter:hcounter
- 19. Parameter Settings for User Entity Instance: vgacontroller:vga0|vertical_counter:vcounter
- 20. Parameter Settings for Inferred Entity Instance: waveform_renderer:wve0|lpm_divide:Div1
- 21. Parameter Settings for Inferred Entity Instance: waveform_renderer:wve0|lpm_divide:Div0
- 22. Port Connectivity Checks: "vgacontroller:vga0"
- 23. Port Connectivity Checks: "ltc2308:ltc2308_0"
- 24. Post-Synthesis Netlist Statistics for Top Partition
- 25. Elapsed Time Per Partition
- 26. Analysis & Synthesis Messages
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis DSP Block Usage Summary
+ 10. Analysis & Synthesis IP Cores Summary
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Source assignments for dual_port_ram:dp_0|altsyncram:altsyncram_component|altsyncram_88r1:auto_generated
+ 16. Parameter Settings for User Entity Instance: clkdiv:c_1k
+ 17. Parameter Settings for User Entity Instance: clkdiv:c_vga
+ 18. Parameter Settings for User Entity Instance: input_control:input_0
+ 19. Parameter Settings for User Entity Instance: trigger:trig_0
+ 20. Parameter Settings for User Entity Instance: dual_port_ram:dp_0|altsyncram:altsyncram_component
+ 21. Parameter Settings for User Entity Instance: waveform_renderer:wve0
+ 22. Parameter Settings for User Entity Instance: vgacontroller:vga0|horizontal_counter:hcounter
+ 23. Parameter Settings for User Entity Instance: vgacontroller:vga0|vertical_counter:vcounter
+ 24. Parameter Settings for Inferred Entity Instance: waveform_renderer:wve0|lpm_divide:Div1
+ 25. Parameter Settings for Inferred Entity Instance: waveform_renderer:wve0|lpm_divide:Div0
+ 26. altsyncram Parameter Settings by Entity Instance
+ 27. Port Connectivity Checks: "vgacontroller:vga0"
+ 28. Port Connectivity Checks: "dual_port_ram:dp_0"
+ 29. Port Connectivity Checks: "ltc2308:ltc2308_0"
+ 30. Post-Synthesis Netlist Statistics for Top Partition
+ 31. Elapsed Time Per Partition
+ 32. Analysis & Synthesis Messages
 
 
 
@@ -58,16 +64,16 @@ on the Quartus Prime software download page.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat Apr  4 13:43:53 2026           ;
+; Analysis & Synthesis Status     ; Successful - Sun Apr  5 01:27:03 2026           ;
 ; Quartus Prime Version           ; 25.1std.0 Build 1129 10/21/2025 SC Lite Edition ;
 ; Revision Name                   ; fpga-oscilliscope                               ;
 ; Top-level Entity Name           ; oscilliscope_top                                ;
 ; Family                          ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 3280                                            ;
+; Total registers                 ; 203                                             ;
 ; Total pins                      ; 25                                              ;
 ; Total virtual pins              ; 0                                               ;
-; Total block memory bits         ; 0                                               ;
+; Total block memory bits         ; 264                                             ;
 ; Total DSP Blocks                ; 2                                               ;
 ; Total HSSI RX PCSs              ; 0                                               ;
 ; Total HSSI PMA RX Deserializers ; 0                                               ;
@@ -178,11 +184,11 @@ on the Quartus Prime software download page.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.1%      ;
-;     Processor 3            ;   0.1%      ;
-;     Processor 4            ;   0.1%      ;
-;     Processor 5            ;   0.1%      ;
-;     Processor 6            ;   0.1%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -201,44 +207,55 @@ on the Quartus Prime software download page.
 ; input_control.sv                 ; yes             ; User SystemVerilog HDL File  ; C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/input_control.sv           ;         ;
 ; horizontal_counter.sv            ; yes             ; User SystemVerilog HDL File  ; C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/horizontal_counter.sv      ;         ;
 ; clkdiv.sv                        ; yes             ; User SystemVerilog HDL File  ; C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/clkdiv.sv                  ;         ;
-; circularBuffer.sv                ; yes             ; User SystemVerilog HDL File  ; C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/circularBuffer.sv          ;         ;
 ; button.sv                        ; yes             ; User SystemVerilog HDL File  ; C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/button.sv                  ;         ;
 ; fpga-oscilliscope.sv             ; yes             ; User SystemVerilog HDL File  ; C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv       ;         ;
+; dual_port_ram.v                  ; yes             ; User Wizard-Generated File   ; C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/dual_port_ram.v            ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                 ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/altsyncram.tdf                               ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                 ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/stratix_ram_block.inc                        ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                 ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/lpm_mux.inc                                  ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/lpm_decode.inc                               ;         ;
+; aglobal251.inc                   ; yes             ; Megafunction                 ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/aglobal251.inc                               ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                 ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/a_rdenreg.inc                                ;         ;
+; altrom.inc                       ; yes             ; Megafunction                 ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/altrom.inc                                   ;         ;
+; altram.inc                       ; yes             ; Megafunction                 ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/altram.inc                                   ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                 ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/altdpram.inc                                 ;         ;
+; db/altsyncram_88r1.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/db/altsyncram_88r1.tdf     ;         ;
 ; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/lpm_divide.tdf                               ;         ;
 ; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/abs_divider.inc                              ;         ;
 ; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/sign_div_unsign.inc                          ;         ;
-; aglobal251.inc                   ; yes             ; Megafunction                 ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/aglobal251.inc                               ;         ;
 ; db/lpm_divide_ucm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/db/lpm_divide_ucm.tdf      ;         ;
 ; db/sign_div_unsign_4nh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/db/sign_div_unsign_4nh.tdf ;         ;
 ; db/alt_u_div_e2f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/db/alt_u_div_e2f.tdf       ;         ;
 +----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------+---------+
 
 
-+--------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary            ;
-+---------------------------------------------+----------+
-; Resource                                    ; Usage    ;
-+---------------------------------------------+----------+
-; Estimate of Logic utilization (ALMs needed) ; 2384     ;
-;                                             ;          ;
-; Combinational ALUT usage for logic          ; 2280     ;
-;     -- 7 input functions                    ; 1        ;
-;     -- 6 input functions                    ; 1140     ;
-;     -- 5 input functions                    ; 47       ;
-;     -- 4 input functions                    ; 319      ;
-;     -- <=3 input functions                  ; 773      ;
-;                                             ;          ;
-; Dedicated logic registers                   ; 3280     ;
-;                                             ;          ;
-; I/O pins                                    ; 25       ;
-;                                             ;          ;
-; Total DSP Blocks                            ; 2        ;
-;                                             ;          ;
-; Maximum fan-out node                        ; s1~input ;
-; Maximum fan-out                             ; 3402     ;
-; Total fan-out                               ; 23381    ;
-; Average fan-out                             ; 4.17     ;
-+---------------------------------------------+----------+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimate of Logic utilization (ALMs needed) ; 480         ;
+;                                             ;             ;
+; Combinational ALUT usage for logic          ; 880         ;
+;     -- 7 input functions                    ; 1           ;
+;     -- 6 input functions                    ; 70          ;
+;     -- 5 input functions                    ; 61          ;
+;     -- 4 input functions                    ; 145         ;
+;     -- <=3 input functions                  ; 603         ;
+;                                             ;             ;
+; Dedicated logic registers                   ; 203         ;
+;                                             ;             ;
+; I/O pins                                    ; 25          ;
+; Total MLAB memory bits                      ; 0           ;
+; Total block memory bits                     ; 264         ;
+;                                             ;             ;
+; Total DSP Blocks                            ; 2           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; clk50~input ;
+; Maximum fan-out                             ; 121         ;
+; Total fan-out                               ; 3701        ;
+; Average fan-out                             ; 3.23        ;
++---------------------------------------------+-------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -246,21 +263,23 @@ on the Quartus Prime software download page.
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                      ; Entity Name         ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |oscilliscope_top                         ; 2280 (10)           ; 3280 (8)                  ; 0                 ; 2          ; 25   ; 0            ; |oscilliscope_top                                                                                                                        ; oscilliscope_top    ; work         ;
-;    |circularBuffer:cb_0|                  ; 1314 (1314)         ; 3084 (3084)               ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|circularBuffer:cb_0                                                                                                    ; circularBuffer      ; work         ;
+; |oscilliscope_top                         ; 880 (7)             ; 203 (10)                  ; 264               ; 2          ; 25   ; 0            ; |oscilliscope_top                                                                                                                        ; oscilliscope_top    ; work         ;
 ;    |clkdiv:c_1k|                          ; 21 (21)             ; 17 (17)                   ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|clkdiv:c_1k                                                                                                            ; clkdiv              ; work         ;
 ;    |clkdiv:c_vga|                         ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|clkdiv:c_vga                                                                                                           ; clkdiv              ; work         ;
-;    |input_control:input_0|                ; 40 (35)             ; 39 (25)                   ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|input_control:input_0                                                                                                  ; input_control       ; work         ;
+;    |dual_port_ram:dp_0|                   ; 0 (0)               ; 0 (0)                     ; 264               ; 0          ; 0    ; 0            ; |oscilliscope_top|dual_port_ram:dp_0                                                                                                     ; dual_port_ram       ; work         ;
+;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 264               ; 0          ; 0    ; 0            ; |oscilliscope_top|dual_port_ram:dp_0|altsyncram:altsyncram_component                                                                     ; altsyncram          ; work         ;
+;          |altsyncram_88r1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 264               ; 0          ; 0    ; 0            ; |oscilliscope_top|dual_port_ram:dp_0|altsyncram:altsyncram_component|altsyncram_88r1:auto_generated                                      ; altsyncram_88r1     ; work         ;
+;    |input_control:input_0|                ; 38 (33)             ; 39 (25)                   ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|input_control:input_0                                                                                                  ; input_control       ; work         ;
 ;       |button:trigger_button|             ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|input_control:input_0|button:trigger_button                                                                            ; button              ; work         ;
 ;       |rotary_encoder:level_enc|          ; 2 (2)               ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|input_control:input_0|rotary_encoder:level_enc                                                                         ; rotary_encoder      ; work         ;
 ;       |rotary_encoder:time_enc|           ; 2 (2)               ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|input_control:input_0|rotary_encoder:time_enc                                                                          ; rotary_encoder      ; work         ;
 ;    |ltc2308:ltc2308_0|                    ; 27 (27)             ; 37 (37)                   ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|ltc2308:ltc2308_0                                                                                                      ; ltc2308             ; work         ;
-;    |timebase:time_0|                      ; 125 (125)           ; 34 (34)                   ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|timebase:time_0                                                                                                        ; timebase            ; work         ;
-;    |trigger:trig_0|                       ; 34 (34)             ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|trigger:trig_0                                                                                                         ; trigger             ; work         ;
-;    |vgacontroller:vga0|                   ; 91 (53)             ; 33 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|vgacontroller:vga0                                                                                                     ; vgacontroller       ; work         ;
-;       |horizontal_counter:hcounter|       ; 20 (20)             ; 17 (17)                   ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|vgacontroller:vga0|horizontal_counter:hcounter                                                                         ; horizontal_counter  ; work         ;
+;    |timebase:time_0|                      ; 47 (47)             ; 34 (34)                   ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|timebase:time_0                                                                                                        ; timebase            ; work         ;
+;    |trigger:trig_0|                       ; 36 (36)             ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|trigger:trig_0                                                                                                         ; trigger             ; work         ;
+;    |vgacontroller:vga0|                   ; 87 (50)             ; 33 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|vgacontroller:vga0                                                                                                     ; vgacontroller       ; work         ;
+;       |horizontal_counter:hcounter|       ; 19 (19)             ; 17 (17)                   ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|vgacontroller:vga0|horizontal_counter:hcounter                                                                         ; horizontal_counter  ; work         ;
 ;       |vertical_counter:vcounter|         ; 18 (18)             ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|vgacontroller:vga0|vertical_counter:vcounter                                                                           ; vertical_counter    ; work         ;
-;    |waveform_renderer:wve0|               ; 617 (103)           ; 12 (12)                   ; 0                 ; 2          ; 0    ; 0            ; |oscilliscope_top|waveform_renderer:wve0                                                                                                 ; waveform_renderer   ; work         ;
+;    |waveform_renderer:wve0|               ; 616 (102)           ; 17 (17)                   ; 0                 ; 2          ; 0    ; 0            ; |oscilliscope_top|waveform_renderer:wve0                                                                                                 ; waveform_renderer   ; work         ;
 ;       |lpm_divide:Div0|                   ; 257 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|waveform_renderer:wve0|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
 ;          |lpm_divide_ucm:auto_generated|  ; 257 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|waveform_renderer:wve0|lpm_divide:Div0|lpm_divide_ucm:auto_generated                                                   ; lpm_divide_ucm      ; work         ;
 ;             |sign_div_unsign_4nh:divider| ; 257 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|waveform_renderer:wve0|lpm_divide:Div0|lpm_divide_ucm:auto_generated|sign_div_unsign_4nh:divider                       ; sign_div_unsign_4nh ; work         ;
@@ -271,6 +290,15 @@ on the Quartus Prime software download page.
 ;                |alt_u_div_e2f:divider|    ; 257 (257)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|waveform_renderer:wve0|lpm_divide:Div1|lpm_divide_ucm:auto_generated|sign_div_unsign_4nh:divider|alt_u_div_e2f:divider ; alt_u_div_e2f       ; work         ;
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                 ;
++----------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; Name                                                                                         ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
++----------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; dual_port_ram:dp_0|altsyncram:altsyncram_component|altsyncram_88r1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 22           ; 12           ; 22           ; 12           ; 264  ; None ;
++----------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
 
 
 +-----------------------------------------------+
@@ -285,17 +313,44 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------+-------------+
 
 
++------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                  ;
++--------+--------------+---------+--------------+--------------+--------------------------------------+-----------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                      ; IP Include File ;
++--------+--------------+---------+--------------+--------------+--------------------------------------+-----------------+
+; Altera ; RAM: 2-PORT  ; 25.1    ; N/A          ; N/A          ; |oscilliscope_top|dual_port_ram:dp_0 ; dual_port_ram.v ;
++--------+--------------+---------+--------------+--------------+--------------------------------------+-----------------+
+
+
 +----------------------------------------------------------------------------------+
 ; Registers Removed During Synthesis                                               ;
 +----------------------------------------+-----------------------------------------+
 ; Register name                          ; Reason for Removal                      ;
 +----------------------------------------+-----------------------------------------+
 ; input_control:input_0|trig_level[0]    ; Stuck at GND due to stuck port data_in  ;
+; waveform_renderer:wve0|base_sync[7]    ; Lost fanout                             ;
+; write_addr_sync[7]                     ; Lost fanout                             ;
+; waveform_renderer:wve0|base_sync[6]    ; Lost fanout                             ;
+; write_addr_sync[6]                     ; Lost fanout                             ;
+; waveform_renderer:wve0|base_sync[5]    ; Lost fanout                             ;
+; write_addr_sync[5]                     ; Lost fanout                             ;
 ; clkdiv:c_vga|count[0]                  ; Stuck at GND due to stuck port data_in  ;
 ; ltc2308:ltc2308_0|state[2..9,11..31]   ; Merged with ltc2308:ltc2308_0|state[10] ;
 ; ltc2308:ltc2308_0|state[10]            ; Stuck at GND due to stuck port data_in  ;
-; Total Number of Removed Registers = 32 ;                                         ;
+; write_addr[5..7]                       ; Lost fanout                             ;
+; Total Number of Removed Registers = 41 ;                                         ;
 +----------------------------------------+-----------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                       ;
++-------------------------------------+--------------------+----------------------------------------+
+; Register name                       ; Reason for Removal ; Registers Removed due to This Register ;
++-------------------------------------+--------------------+----------------------------------------+
+; waveform_renderer:wve0|base_sync[7] ; Lost Fanouts       ; write_addr_sync[7], write_addr[7]      ;
+; waveform_renderer:wve0|base_sync[6] ; Lost Fanouts       ; write_addr_sync[6], write_addr[6]      ;
+; waveform_renderer:wve0|base_sync[5] ; Lost Fanouts       ; write_addr_sync[5], write_addr[5]      ;
++-------------------------------------+--------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -303,12 +358,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 3280  ;
-; Number of registers using Synchronous Clear  ; 3208  ;
+; Total registers                              ; 203   ;
+; Number of registers using Synchronous Clear  ; 133   ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 3137  ;
+; Number of registers using Clock Enable       ; 70    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -318,275 +373,25 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                   ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------+
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |oscilliscope_top|vgacontroller:vga0|horizontal_counter:hcounter|hcounter[3] ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |oscilliscope_top|ltc2308:ltc2308_0|count[5]                                 ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[0][2]                              ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[1][5]                              ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[2][11]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[3][4]                              ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[4][5]                              ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[5][7]                              ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[6][5]                              ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[7][4]                              ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[8][10]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[9][5]                              ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[10][5]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[11][2]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[12][8]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[13][9]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[14][11]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[15][0]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[16][5]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[17][5]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[18][7]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[19][10]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[20][6]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[21][3]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[22][0]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[23][7]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[24][3]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[25][9]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[26][9]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[27][6]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[28][6]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[29][3]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[30][0]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[31][10]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[32][10]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[33][0]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[34][11]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[35][6]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[36][6]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[37][5]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[38][3]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[39][9]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[40][1]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[41][8]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[42][1]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[43][9]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[44][0]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[45][7]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[46][3]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[47][2]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[48][9]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[49][7]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[50][4]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[51][1]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[52][9]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[53][9]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[54][8]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[55][7]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[56][7]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[57][1]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[58][1]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[59][6]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[60][7]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[61][11]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[62][7]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[63][7]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[64][7]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[65][8]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[66][6]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[67][0]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[68][11]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[69][5]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[70][7]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[71][8]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[72][11]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[73][10]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[74][10]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[75][10]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[76][10]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[77][4]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[78][4]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[79][11]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[80][2]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[81][11]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[82][5]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[83][7]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[84][2]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[85][2]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[86][10]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[87][1]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[88][4]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[89][6]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[90][3]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[91][8]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[92][8]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[93][6]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[94][10]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[95][1]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[96][4]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[97][6]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[98][11]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[99][10]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[100][0]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[101][10]                           ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[102][3]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[103][5]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[104][5]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[105][5]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[106][9]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[107][1]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[108][1]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[109][1]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[110][1]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[111][1]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[112][7]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[113][1]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[114][3]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[115][10]                           ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[116][3]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[117][6]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[118][10]                           ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[119][4]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[120][10]                           ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[121][6]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[122][5]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[123][3]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[124][6]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[125][10]                           ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[126][0]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[127][6]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[128][5]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[129][5]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[130][0]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[131][7]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[132][3]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[133][7]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[134][1]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[135][11]                           ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[136][0]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[137][1]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[138][10]                           ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[139][10]                           ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[140][6]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[141][9]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[142][10]                           ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[143][7]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[144][1]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[145][1]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[146][7]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[147][0]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[148][2]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[149][0]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[150][7]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[151][8]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[152][10]                           ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[153][8]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[154][4]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[155][10]                           ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[156][4]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[157][8]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[158][0]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[159][5]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[160][3]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[161][1]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[162][1]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[163][6]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[164][10]                           ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[165][4]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[166][8]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[167][7]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[168][7]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[169][9]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[170][7]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[171][5]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[172][8]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[173][1]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[174][9]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[175][8]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[176][6]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[177][2]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[178][0]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[179][4]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[180][0]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[181][10]                           ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[182][1]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[183][3]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[184][5]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[185][10]                           ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[186][0]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[187][3]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[188][3]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[189][8]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[190][9]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[191][9]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[192][9]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[193][9]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[194][9]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[195][9]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[196][9]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[197][11]                           ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[198][4]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[199][0]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[200][2]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[201][5]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[202][11]                           ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[203][4]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[204][11]                           ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[205][6]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[206][6]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[207][3]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[208][10]                           ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[209][11]                           ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[210][11]                           ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[211][10]                           ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[212][10]                           ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[213][5]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[214][9]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[215][7]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[216][3]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[217][3]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[218][1]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[219][2]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[220][11]                           ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[221][7]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[222][9]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[223][9]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[224][11]                           ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[225][0]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[226][0]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[227][11]                           ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[228][8]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[229][4]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[230][0]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[231][9]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[232][0]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[233][0]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[234][0]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[235][0]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[236][0]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[237][0]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[238][0]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[239][0]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[240][0]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[241][3]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[242][10]                           ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[243][9]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[244][4]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[245][8]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[246][10]                           ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[247][7]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[248][10]                           ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[249][6]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[250][4]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[251][5]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[252][6]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[253][11]                           ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[254][11]                           ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|mem[255][11]                           ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |oscilliscope_top|write_addr[4]                                              ;
-; 3:1                ; 33 bits   ; 66 LEs        ; 0 LEs                ; 66 LEs                 ; Yes        ; |oscilliscope_top|timebase:time_0|counter[22]                                ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |oscilliscope_top|vgacontroller:vga0|vertical_counter:vcounter|vcounter[15]  ;
-; 4:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |oscilliscope_top|input_control:input_0|trig_level[7]                        ;
-; 4:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |oscilliscope_top|input_control:input_0|timebase_sel[10]                     ;
-; 256:1              ; 12 bits   ; 2040 LEs      ; 2040 LEs             ; 0 LEs                  ; Yes        ; |oscilliscope_top|circularBuffer:cb_0|data_out[8]                            ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |oscilliscope_top|ltc2308:ltc2308_0|state_next[1]                            ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |oscilliscope_top|timebase:time_0|ShiftLeft0                                 ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |oscilliscope_top|timebase:time_0|ShiftLeft0                                 ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |oscilliscope_top|vgacontroller:vga0|horizontal_counter:hcounter|hcounter[2] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |oscilliscope_top|ltc2308:ltc2308_0|count[6]                                 ;
+; 3:1                ; 33 bits   ; 66 LEs        ; 0 LEs                ; 66 LEs                 ; Yes        ; |oscilliscope_top|timebase:time_0|counter[32]                                ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |oscilliscope_top|write_addr[6]                                              ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |oscilliscope_top|vgacontroller:vga0|vertical_counter:vcounter|vcounter[6]   ;
+; 4:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |oscilliscope_top|input_control:input_0|trig_level[2]                        ;
+; 4:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |oscilliscope_top|input_control:input_0|timebase_sel[7]                      ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |oscilliscope_top|ltc2308:ltc2308_0|count_next[3]                            ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |oscilliscope_top|vgacontroller:vga0|gpio[6]                                 ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------+
+; Source assignments for dual_port_ram:dp_0|altsyncram:altsyncram_component|altsyncram_88r1:auto_generated ;
++---------------------------------+--------------------+------+--------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                         ;
++---------------------------------+--------------------+------+--------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                          ;
++---------------------------------+--------------------+------+--------------------------------------------+
 
 
 +----------------------------------------------------------+
@@ -633,14 +438,64 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: circularBuffer:cb_0 ;
-+----------------+-------+-----------------------------------------+
-; Parameter Name ; Value ; Type                                    ;
-+----------------+-------+-----------------------------------------+
-; DATA_WIDTH     ; 12    ; Signed Integer                          ;
-; ADDR_WIDTH     ; 8     ; Signed Integer                          ;
-+----------------+-------+-----------------------------------------+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: dual_port_ram:dp_0|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+-------------------------------------+
+; Parameter Name                     ; Value                ; Type                                ;
++------------------------------------+----------------------+-------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                             ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                          ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                        ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                        ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                      ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                             ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                             ;
+; WIDTH_A                            ; 12                   ; Signed Integer                      ;
+; WIDTHAD_A                          ; 5                    ; Signed Integer                      ;
+; NUMWORDS_A                         ; 22                   ; Signed Integer                      ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                             ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                             ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                             ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                             ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                             ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                             ;
+; WIDTH_B                            ; 12                   ; Signed Integer                      ;
+; WIDTHAD_B                          ; 5                    ; Signed Integer                      ;
+; NUMWORDS_B                         ; 22                   ; Signed Integer                      ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                             ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                             ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                             ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                             ;
+; OUTDATA_REG_B                      ; CLOCK1               ; Untyped                             ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                             ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                             ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                             ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                             ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                             ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                             ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                             ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                      ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                             ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                             ;
+; BYTE_SIZE                          ; 8                    ; Untyped                             ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                             ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                             ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                             ;
+; INIT_FILE                          ; UNUSED               ; Untyped                             ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                             ;
+; MAXIMUM_DEPTH                      ; 256                  ; Signed Integer                      ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                             ;
+; CLOCK_ENABLE_INPUT_B               ; BYPASS               ; Untyped                             ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                             ;
+; CLOCK_ENABLE_OUTPUT_B              ; BYPASS               ; Untyped                             ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                             ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                             ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                             ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                             ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                             ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                             ;
+; CBXI_PARAMETER                     ; altsyncram_88r1      ; Untyped                             ;
++------------------------------------+----------------------+-------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -721,6 +576,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                               ;
++-------------------------------------------+----------------------------------------------------+
+; Name                                      ; Value                                              ;
++-------------------------------------------+----------------------------------------------------+
+; Number of entity instances                ; 1                                                  ;
+; Entity Instance                           ; dual_port_ram:dp_0|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                          ;
+;     -- WIDTH_A                            ; 12                                                 ;
+;     -- NUMWORDS_A                         ; 22                                                 ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                       ;
+;     -- WIDTH_B                            ; 12                                                 ;
+;     -- NUMWORDS_B                         ; 22                                                 ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                             ;
+;     -- OUTDATA_REG_B                      ; CLOCK1                                             ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                               ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                          ;
++-------------------------------------------+----------------------------------------------------+
+
+
 +-----------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "vgacontroller:vga0"                                                                  ;
 +-------+--------+----------+-------------------------------------------------------------------------------------+
@@ -729,6 +604,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; vsync ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; hsync ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "dual_port_ram:dp_0"                                                                                                                                                                  ;
++-----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                                                                                                                                          ;
++-----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; rdaddress ; Input ; Warning  ; Input port expression (8 bits) is wider than the input port (5 bits) it drives.  The 3 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; wraddress ; Input ; Warning  ; Input port expression (8 bits) is wider than the input port (5 bits) it drives.  The 3 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++-----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +--------------------------------------------------------+
@@ -745,37 +630,37 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 3280                        ;
-;     ENA               ; 26                          ;
-;     ENA SCLR          ; 3111                        ;
-;     SCLR              ; 97                          ;
-;     plain             ; 46                          ;
-; arriav_lcell_comb     ; 2281                        ;
-;     arith             ; 454                         ;
+; arriav_ff             ; 203                         ;
+;     ENA               ; 31                          ;
+;     ENA SCLR          ; 39                          ;
+;     SCLR              ; 94                          ;
+;     plain             ; 39                          ;
+; arriav_lcell_comb     ; 881                         ;
+;     arith             ; 423                         ;
 ;         0 data inputs ; 36                          ;
-;         1 data inputs ; 161                         ;
+;         1 data inputs ; 158                         ;
 ;         2 data inputs ; 13                          ;
 ;         3 data inputs ; 131                         ;
-;         4 data inputs ; 113                         ;
+;         4 data inputs ; 80                          ;
+;         5 data inputs ; 5                           ;
 ;     extend            ; 1                           ;
 ;         7 data inputs ; 1                           ;
-;     normal            ; 1792                        ;
+;     normal            ; 431                         ;
 ;         1 data inputs ; 3                           ;
-;         2 data inputs ; 215                         ;
-;         3 data inputs ; 185                         ;
-;         4 data inputs ; 202                         ;
-;         5 data inputs ; 47                          ;
-;         6 data inputs ; 1140                        ;
-;     shared            ; 34                          ;
+;         2 data inputs ; 183                         ;
+;         3 data inputs ; 54                          ;
+;         4 data inputs ; 65                          ;
+;         5 data inputs ; 56                          ;
+;         6 data inputs ; 70                          ;
+;     shared            ; 26                          ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 24                          ;
-;         2 data inputs ; 4                           ;
-;         4 data inputs ; 4                           ;
 ; arriav_mac            ; 2                           ;
 ; boundary_port         ; 25                          ;
+; stratixv_ram_block    ; 12                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 26.70                       ;
-; Average LUT depth     ; 7.91                        ;
+; Average LUT depth     ; 15.82                       ;
 +-----------------------+-----------------------------+
 
 
@@ -784,7 +669,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:04     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -794,7 +679,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
-    Info: Processing started: Sat Apr  4 13:43:41 2026
+    Info: Processing started: Sun Apr  5 01:26:51 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off fpga-oscilliscope -c fpga-oscilliscope
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -826,34 +711,61 @@ Info (12021): Found 1 design units, including 1 entities, in source file button.
     Info (12023): Found entity 1: button File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/button.sv Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file fpga-oscilliscope.sv
     Info (12023): Found entity 1: oscilliscope_top File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 3
-Warning (10236): Verilog HDL Implicit Net warning at top_vga.sv(173): created implicit net for "vsync" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/top_vga.sv Line: 173
-Warning (10236): Verilog HDL Implicit Net warning at top_vga.sv(174): created implicit net for "hsync" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/top_vga.sv Line: 174
-Warning (10236): Verilog HDL Implicit Net warning at fpga-oscilliscope.sv(173): created implicit net for "vsync" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 173
-Warning (10236): Verilog HDL Implicit Net warning at fpga-oscilliscope.sv(174): created implicit net for "hsync" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 174
+Info (12021): Found 1 design units, including 1 entities, in source file dual_port_ram.v
+    Info (12023): Found entity 1: dual_port_ram File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/dual_port_ram.v Line: 40
+Warning (10236): Verilog HDL Implicit Net warning at top_vga.sv(195): created implicit net for "vsync" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/top_vga.sv Line: 195
+Warning (10236): Verilog HDL Implicit Net warning at top_vga.sv(196): created implicit net for "hsync" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/top_vga.sv Line: 196
+Warning (10236): Verilog HDL Implicit Net warning at fpga-oscilliscope.sv(195): created implicit net for "vsync" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 195
+Warning (10236): Verilog HDL Implicit Net warning at fpga-oscilliscope.sv(196): created implicit net for "hsync" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 196
 Info (12127): Elaborating entity "oscilliscope_top" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at fpga-oscilliscope.sv(77): truncated value with size 32 to match size of target (8) File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 77
-Info (12128): Elaborating entity "clkdiv" for hierarchy "clkdiv:c_1k" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 57
-Info (12128): Elaborating entity "clkdiv" for hierarchy "clkdiv:c_vga" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 65
-Info (12128): Elaborating entity "ltc2308" for hierarchy "ltc2308:ltc2308_0" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 97
+Warning (10230): Verilog HDL assignment warning at fpga-oscilliscope.sv(78): truncated value with size 32 to match size of target (8) File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 78
+Info (12128): Elaborating entity "clkdiv" for hierarchy "clkdiv:c_1k" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 58
+Info (12128): Elaborating entity "clkdiv" for hierarchy "clkdiv:c_vga" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 66
+Info (12128): Elaborating entity "ltc2308" for hierarchy "ltc2308:ltc2308_0" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 101
 Warning (10858): Verilog HDL warning at ltc2308.sv(34): object read used but never assigned File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/ltc2308.sv Line: 34
 Warning (10858): Verilog HDL warning at ltc2308.sv(34): object write used but never assigned File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/ltc2308.sv Line: 34
 Warning (10036): Verilog HDL or VHDL warning at ltc2308.sv(74): object "firstch" assigned a value but never read File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/ltc2308.sv Line: 74
 Warning (10036): Verilog HDL or VHDL warning at ltc2308.sv(74): object "lastch" assigned a value but never read File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/ltc2308.sv Line: 74
 Warning (10036): Verilog HDL or VHDL warning at ltc2308.sv(108): object "prevread" assigned a value but never read File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/ltc2308.sv Line: 108
-Info (12128): Elaborating entity "input_control" for hierarchy "input_control:input_0" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 110
+Info (12128): Elaborating entity "input_control" for hierarchy "input_control:input_0" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 114
 Info (12128): Elaborating entity "rotary_encoder" for hierarchy "input_control:input_0|rotary_encoder:level_enc" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/input_control.sv Line: 53
 Info (12128): Elaborating entity "button" for hierarchy "input_control:input_0|button:trigger_button" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/input_control.sv Line: 75
-Info (12128): Elaborating entity "trigger" for hierarchy "trigger:trig_0" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 123
+Info (12128): Elaborating entity "trigger" for hierarchy "trigger:trig_0" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 127
 Warning (10230): Verilog HDL assignment warning at trigger.sv(46): truncated value with size 32 to match size of target (1) File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/trigger.sv Line: 46
-Info (12128): Elaborating entity "timebase" for hierarchy "timebase:time_0" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 132
-Info (12128): Elaborating entity "circularBuffer" for hierarchy "circularBuffer:cb_0" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 146
-Info (12128): Elaborating entity "waveform_renderer" for hierarchy "waveform_renderer:wve0" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 165
+Info (12128): Elaborating entity "timebase" for hierarchy "timebase:time_0" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 136
+Info (12128): Elaborating entity "dual_port_ram" for hierarchy "dual_port_ram:dp_0" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 168
+Info (12128): Elaborating entity "altsyncram" for hierarchy "dual_port_ram:dp_0|altsyncram:altsyncram_component" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/dual_port_ram.v Line: 91
+Info (12130): Elaborated megafunction instantiation "dual_port_ram:dp_0|altsyncram:altsyncram_component" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/dual_port_ram.v Line: 91
+Info (12133): Instantiated megafunction "dual_port_ram:dp_0|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/dual_port_ram.v Line: 91
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_input_b" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "BYPASS"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "maximum_depth" = "256"
+    Info (12134): Parameter "numwords_a" = "22"
+    Info (12134): Parameter "numwords_b" = "22"
+    Info (12134): Parameter "operation_mode" = "DUAL_PORT"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "widthad_a" = "5"
+    Info (12134): Parameter "widthad_b" = "5"
+    Info (12134): Parameter "width_a" = "12"
+    Info (12134): Parameter "width_b" = "12"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_88r1.tdf
+    Info (12023): Found entity 1: altsyncram_88r1 File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/db/altsyncram_88r1.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_88r1" for hierarchy "dual_port_ram:dp_0|altsyncram:altsyncram_component|altsyncram_88r1:auto_generated" File: c:/altera_lite/25.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "waveform_renderer" for hierarchy "waveform_renderer:wve0" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 187
 Warning (10230): Verilog HDL assignment warning at waveform_renderer.sv(35): truncated value with size 32 to match size of target (21) File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/waveform_renderer.sv Line: 35
 Warning (10230): Verilog HDL assignment warning at waveform_renderer.sv(36): truncated value with size 32 to match size of target (21) File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/waveform_renderer.sv Line: 36
 Warning (10230): Verilog HDL assignment warning at waveform_renderer.sv(37): truncated value with size 32 to match size of target (21) File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/waveform_renderer.sv Line: 37
 Warning (10230): Verilog HDL assignment warning at waveform_renderer.sv(38): truncated value with size 32 to match size of target (10) File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/waveform_renderer.sv Line: 38
-Warning (10230): Verilog HDL assignment warning at waveform_renderer.sv(63): truncated value with size 32 to match size of target (8) File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/waveform_renderer.sv Line: 63
-Info (12128): Elaborating entity "vgacontroller" for hierarchy "vgacontroller:vga0" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 178
+Warning (10230): Verilog HDL assignment warning at waveform_renderer.sv(70): truncated value with size 32 to match size of target (8) File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/waveform_renderer.sv Line: 70
+Info (12128): Elaborating entity "vgacontroller" for hierarchy "vgacontroller:vga0" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 200
 Warning (10230): Verilog HDL assignment warning at vgacontroller.sv(39): truncated value with size 32 to match size of target (10) File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/vgacontroller.sv Line: 39
 Warning (10230): Verilog HDL assignment warning at vgacontroller.sv(40): truncated value with size 32 to match size of target (10) File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/vgacontroller.sv Line: 40
 Warning (10230): Verilog HDL assignment warning at vgacontroller.sv(43): truncated value with size 32 to match size of target (1) File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/vgacontroller.sv Line: 43
@@ -877,17 +789,20 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/sign
     Info (12023): Found entity 1: sign_div_unsign_4nh File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/db/sign_div_unsign_4nh.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_e2f.tdf
     Info (12023): Found entity 1: alt_u_div_e2f File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/db/alt_u_div_e2f.tdf Line: 23
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (286030): Timing-Driven Synthesis is running
+Info (17049): 9 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 5442 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 992 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 8 input pins
     Info (21059): Implemented 17 output pins
-    Info (21061): Implemented 5415 logic cells
+    Info (21061): Implemented 953 logic cells
+    Info (21064): Implemented 12 RAM segments
     Info (21062): Implemented 2 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 23 warnings
-    Info: Peak virtual memory: 4920 megabytes
-    Info: Processing ended: Sat Apr  4 13:43:53 2026
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 24 warnings
+    Info: Peak virtual memory: 4903 megabytes
+    Info: Processing ended: Sun Apr  5 01:27:03 2026
     Info: Elapsed time: 00:00:12
     Info: Total CPU time (on all processors): 00:00:23
 

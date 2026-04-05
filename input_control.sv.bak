@@ -33,8 +33,8 @@ module input_control
 	localparam MIN_TRIGGER = 12'd0;
 	localparam TRIG_SCALE = 12'd10;
 
-	localparam MAX_TIME = 12'd4000;
-	localparam MIN_TIME = 12'd1; // -> At Zero Will Freeze Screen
+	localparam MAX_TIME = 12'd32;
+	localparam MIN_TIME = 12'd0;
 	localparam TIME_SCALE = 12'd1;
 
 	// Encoder Detection
