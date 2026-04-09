@@ -6,7 +6,7 @@ module oscilliscope_top (
 		input  logic enc1a, enc1b,// Encoder #1 (trigger level)
 		input  logic enc2a, enc2b, // Encoder #2 (timebase) 
 		//VGA
-		output logic [15:0] GPIO_0,
+		output logic [13:0] GPIO_0,
 		input logic [1:0] KEY,
 		// ADC
 		input  logic ADC_SDO,
