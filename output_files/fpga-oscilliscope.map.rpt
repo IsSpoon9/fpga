@@ -1,5 +1,5 @@
 Analysis & Synthesis report for fpga-oscilliscope
-Sun Apr  5 01:27:03 2026
+Wed Apr  8 18:32:22 2026
 Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 
 
@@ -64,17 +64,17 @@ on the Quartus Prime software download page.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Apr  5 01:27:03 2026           ;
+; Analysis & Synthesis Status     ; Successful - Wed Apr  8 18:32:22 2026           ;
 ; Quartus Prime Version           ; 25.1std.0 Build 1129 10/21/2025 SC Lite Edition ;
 ; Revision Name                   ; fpga-oscilliscope                               ;
 ; Top-level Entity Name           ; oscilliscope_top                                ;
 ; Family                          ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 203                                             ;
-; Total pins                      ; 25                                              ;
+; Total registers                 ; 207                                             ;
+; Total pins                      ; 27                                              ;
 ; Total virtual pins              ; 0                                               ;
 ; Total block memory bits         ; 264                                             ;
-; Total DSP Blocks                ; 2                                               ;
+; Total DSP Blocks                ; 4                                               ;
 ; Total HSSI RX PCSs              ; 0                                               ;
 ; Total HSSI PMA RX Deserializers ; 0                                               ;
 ; Total HSSI TX PCSs              ; 0                                               ;
@@ -223,9 +223,9 @@ on the Quartus Prime software download page.
 ; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/lpm_divide.tdf                               ;         ;
 ; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/abs_divider.inc                              ;         ;
 ; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/sign_div_unsign.inc                          ;         ;
-; db/lpm_divide_ucm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/db/lpm_divide_ucm.tdf      ;         ;
-; db/sign_div_unsign_4nh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/db/sign_div_unsign_4nh.tdf ;         ;
-; db/alt_u_div_e2f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/db/alt_u_div_e2f.tdf       ;         ;
+; db/lpm_divide_vcm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/db/lpm_divide_vcm.tdf      ;         ;
+; db/sign_div_unsign_5nh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/db/sign_div_unsign_5nh.tdf ;         ;
+; db/alt_u_div_g2f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/db/alt_u_div_g2f.tdf       ;         ;
 +----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------+---------+
 
 
@@ -234,27 +234,27 @@ on the Quartus Prime software download page.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimate of Logic utilization (ALMs needed) ; 480         ;
+; Estimate of Logic utilization (ALMs needed) ; 513         ;
 ;                                             ;             ;
-; Combinational ALUT usage for logic          ; 880         ;
+; Combinational ALUT usage for logic          ; 946         ;
 ;     -- 7 input functions                    ; 1           ;
 ;     -- 6 input functions                    ; 70          ;
-;     -- 5 input functions                    ; 61          ;
-;     -- 4 input functions                    ; 145         ;
-;     -- <=3 input functions                  ; 603         ;
+;     -- 5 input functions                    ; 62          ;
+;     -- 4 input functions                    ; 163         ;
+;     -- <=3 input functions                  ; 650         ;
 ;                                             ;             ;
-; Dedicated logic registers                   ; 203         ;
+; Dedicated logic registers                   ; 207         ;
 ;                                             ;             ;
-; I/O pins                                    ; 25          ;
+; I/O pins                                    ; 27          ;
 ; Total MLAB memory bits                      ; 0           ;
 ; Total block memory bits                     ; 264         ;
 ;                                             ;             ;
-; Total DSP Blocks                            ; 2           ;
+; Total DSP Blocks                            ; 4           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; clk50~input ;
 ; Maximum fan-out                             ; 121         ;
-; Total fan-out                               ; 3701        ;
-; Average fan-out                             ; 3.23        ;
+; Total fan-out                               ; 3932        ;
+; Average fan-out                             ; 3.22        ;
 +---------------------------------------------+-------------+
 
 
@@ -263,13 +263,14 @@ on the Quartus Prime software download page.
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                      ; Entity Name         ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |oscilliscope_top                         ; 880 (7)             ; 203 (10)                  ; 264               ; 2          ; 25   ; 0            ; |oscilliscope_top                                                                                                                        ; oscilliscope_top    ; work         ;
+; |oscilliscope_top                         ; 946 (7)             ; 207 (10)                  ; 264               ; 4          ; 27   ; 0            ; |oscilliscope_top                                                                                                                        ; oscilliscope_top    ; work         ;
 ;    |clkdiv:c_1k|                          ; 21 (21)             ; 17 (17)                   ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|clkdiv:c_1k                                                                                                            ; clkdiv              ; work         ;
 ;    |clkdiv:c_vga|                         ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|clkdiv:c_vga                                                                                                           ; clkdiv              ; work         ;
 ;    |dual_port_ram:dp_0|                   ; 0 (0)               ; 0 (0)                     ; 264               ; 0          ; 0    ; 0            ; |oscilliscope_top|dual_port_ram:dp_0                                                                                                     ; dual_port_ram       ; work         ;
 ;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 264               ; 0          ; 0    ; 0            ; |oscilliscope_top|dual_port_ram:dp_0|altsyncram:altsyncram_component                                                                     ; altsyncram          ; work         ;
 ;          |altsyncram_88r1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 264               ; 0          ; 0    ; 0            ; |oscilliscope_top|dual_port_ram:dp_0|altsyncram:altsyncram_component|altsyncram_88r1:auto_generated                                      ; altsyncram_88r1     ; work         ;
-;    |input_control:input_0|                ; 38 (33)             ; 39 (25)                   ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|input_control:input_0                                                                                                  ; input_control       ; work         ;
+;    |input_control:input_0|                ; 41 (35)             ; 43 (27)                   ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|input_control:input_0                                                                                                  ; input_control       ; work         ;
+;       |button:scale_button|               ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|input_control:input_0|button:scale_button                                                                              ; button              ; work         ;
 ;       |button:trigger_button|             ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|input_control:input_0|button:trigger_button                                                                            ; button              ; work         ;
 ;       |rotary_encoder:level_enc|          ; 2 (2)               ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|input_control:input_0|rotary_encoder:level_enc                                                                         ; rotary_encoder      ; work         ;
 ;       |rotary_encoder:time_enc|           ; 2 (2)               ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|input_control:input_0|rotary_encoder:time_enc                                                                          ; rotary_encoder      ; work         ;
@@ -279,15 +280,15 @@ on the Quartus Prime software download page.
 ;    |vgacontroller:vga0|                   ; 87 (50)             ; 33 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|vgacontroller:vga0                                                                                                     ; vgacontroller       ; work         ;
 ;       |horizontal_counter:hcounter|       ; 19 (19)             ; 17 (17)                   ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|vgacontroller:vga0|horizontal_counter:hcounter                                                                         ; horizontal_counter  ; work         ;
 ;       |vertical_counter:vcounter|         ; 18 (18)             ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|vgacontroller:vga0|vertical_counter:vcounter                                                                           ; vertical_counter    ; work         ;
-;    |waveform_renderer:wve0|               ; 616 (102)           ; 17 (17)                   ; 0                 ; 2          ; 0    ; 0            ; |oscilliscope_top|waveform_renderer:wve0                                                                                                 ; waveform_renderer   ; work         ;
-;       |lpm_divide:Div0|                   ; 257 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|waveform_renderer:wve0|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
-;          |lpm_divide_ucm:auto_generated|  ; 257 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|waveform_renderer:wve0|lpm_divide:Div0|lpm_divide_ucm:auto_generated                                                   ; lpm_divide_ucm      ; work         ;
-;             |sign_div_unsign_4nh:divider| ; 257 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|waveform_renderer:wve0|lpm_divide:Div0|lpm_divide_ucm:auto_generated|sign_div_unsign_4nh:divider                       ; sign_div_unsign_4nh ; work         ;
-;                |alt_u_div_e2f:divider|    ; 257 (257)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|waveform_renderer:wve0|lpm_divide:Div0|lpm_divide_ucm:auto_generated|sign_div_unsign_4nh:divider|alt_u_div_e2f:divider ; alt_u_div_e2f       ; work         ;
-;       |lpm_divide:Div1|                   ; 257 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|waveform_renderer:wve0|lpm_divide:Div1                                                                                 ; lpm_divide          ; work         ;
-;          |lpm_divide_ucm:auto_generated|  ; 257 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|waveform_renderer:wve0|lpm_divide:Div1|lpm_divide_ucm:auto_generated                                                   ; lpm_divide_ucm      ; work         ;
-;             |sign_div_unsign_4nh:divider| ; 257 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|waveform_renderer:wve0|lpm_divide:Div1|lpm_divide_ucm:auto_generated|sign_div_unsign_4nh:divider                       ; sign_div_unsign_4nh ; work         ;
-;                |alt_u_div_e2f:divider|    ; 257 (257)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|waveform_renderer:wve0|lpm_divide:Div1|lpm_divide_ucm:auto_generated|sign_div_unsign_4nh:divider|alt_u_div_e2f:divider ; alt_u_div_e2f       ; work         ;
+;    |waveform_renderer:wve0|               ; 679 (103)           ; 17 (17)                   ; 0                 ; 4          ; 0    ; 0            ; |oscilliscope_top|waveform_renderer:wve0                                                                                                 ; waveform_renderer   ; work         ;
+;       |lpm_divide:Div0|                   ; 288 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|waveform_renderer:wve0|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_vcm:auto_generated|  ; 288 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|waveform_renderer:wve0|lpm_divide:Div0|lpm_divide_vcm:auto_generated                                                   ; lpm_divide_vcm      ; work         ;
+;             |sign_div_unsign_5nh:divider| ; 288 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|waveform_renderer:wve0|lpm_divide:Div0|lpm_divide_vcm:auto_generated|sign_div_unsign_5nh:divider                       ; sign_div_unsign_5nh ; work         ;
+;                |alt_u_div_g2f:divider|    ; 288 (288)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|waveform_renderer:wve0|lpm_divide:Div0|lpm_divide_vcm:auto_generated|sign_div_unsign_5nh:divider|alt_u_div_g2f:divider ; alt_u_div_g2f       ; work         ;
+;       |lpm_divide:Div1|                   ; 288 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|waveform_renderer:wve0|lpm_divide:Div1                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_vcm:auto_generated|  ; 288 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|waveform_renderer:wve0|lpm_divide:Div1|lpm_divide_vcm:auto_generated                                                   ; lpm_divide_vcm      ; work         ;
+;             |sign_div_unsign_5nh:divider| ; 288 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|waveform_renderer:wve0|lpm_divide:Div1|lpm_divide_vcm:auto_generated|sign_div_unsign_5nh:divider                       ; sign_div_unsign_5nh ; work         ;
+;                |alt_u_div_g2f:divider|    ; 288 (288)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |oscilliscope_top|waveform_renderer:wve0|lpm_divide:Div1|lpm_divide_vcm:auto_generated|sign_div_unsign_5nh:divider|alt_u_div_g2f:divider ; alt_u_div_g2f       ; work         ;
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -306,10 +307,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------+-------------+
 ; Statistic                       ; Number Used ;
 +---------------------------------+-------------+
-; Two Independent 18x18           ; 2           ;
-; Total number of DSP blocks      ; 2           ;
+; Two Independent 18x18           ; 4           ;
+; Total number of DSP blocks      ; 4           ;
 ;                                 ;             ;
-; Fixed Point Unsigned Multiplier ; 2           ;
+; Fixed Point Unsigned Multiplier ; 4           ;
 +---------------------------------+-------------+
 
 
@@ -358,9 +359,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 203   ;
-; Number of registers using Synchronous Clear  ; 133   ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Total registers                              ; 207   ;
+; Number of registers using Synchronous Clear  ; 136   ;
+; Number of registers using Synchronous Load   ; 1     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 70    ;
@@ -373,15 +374,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                   ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------+
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |oscilliscope_top|vgacontroller:vga0|horizontal_counter:hcounter|hcounter[2] ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |oscilliscope_top|ltc2308:ltc2308_0|count[6]                                 ;
-; 3:1                ; 33 bits   ; 66 LEs        ; 0 LEs                ; 66 LEs                 ; Yes        ; |oscilliscope_top|timebase:time_0|counter[32]                                ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |oscilliscope_top|vgacontroller:vga0|horizontal_counter:hcounter|hcounter[8] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |oscilliscope_top|ltc2308:ltc2308_0|count[5]                                 ;
+; 3:1                ; 33 bits   ; 66 LEs        ; 0 LEs                ; 66 LEs                 ; Yes        ; |oscilliscope_top|timebase:time_0|counter[4]                                 ;
 ; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |oscilliscope_top|write_addr[6]                                              ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |oscilliscope_top|vgacontroller:vga0|vertical_counter:vcounter|vcounter[6]   ;
-; 4:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |oscilliscope_top|input_control:input_0|trig_level[2]                        ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |oscilliscope_top|vgacontroller:vga0|vertical_counter:vcounter|vcounter[3]   ;
+; 4:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |oscilliscope_top|input_control:input_0|trig_level[11]                       ;
 ; 4:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |oscilliscope_top|input_control:input_0|timebase_sel[7]                      ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |oscilliscope_top|ltc2308:ltc2308_0|count_next[3]                            ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |oscilliscope_top|vgacontroller:vga0|gpio[6]                                 ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |oscilliscope_top|ltc2308:ltc2308_0|state_next[0]                            ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |oscilliscope_top|vgacontroller:vga0|gpio[10]                                ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------+
 
 
@@ -535,14 +536,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------------+----------------+-----------------------------------------------+
 ; Parameter Name         ; Value          ; Type                                          ;
 +------------------------+----------------+-----------------------------------------------+
-; LPM_WIDTHN             ; 20             ; Untyped                                       ;
+; LPM_WIDTHN             ; 21             ; Untyped                                       ;
 ; LPM_WIDTHD             ; 12             ; Untyped                                       ;
 ; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                       ;
 ; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                       ;
 ; LPM_PIPELINE           ; 0              ; Untyped                                       ;
 ; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                       ;
 ; MAXIMIZE_SPEED         ; 5              ; Untyped                                       ;
-; CBXI_PARAMETER         ; lpm_divide_ucm ; Untyped                                       ;
+; CBXI_PARAMETER         ; lpm_divide_vcm ; Untyped                                       ;
 ; CARRY_CHAIN            ; MANUAL         ; Untyped                                       ;
 ; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                       ;
 ; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                    ;
@@ -558,14 +559,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------------+----------------+-----------------------------------------------+
 ; Parameter Name         ; Value          ; Type                                          ;
 +------------------------+----------------+-----------------------------------------------+
-; LPM_WIDTHN             ; 20             ; Untyped                                       ;
+; LPM_WIDTHN             ; 21             ; Untyped                                       ;
 ; LPM_WIDTHD             ; 12             ; Untyped                                       ;
 ; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                       ;
 ; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                       ;
 ; LPM_PIPELINE           ; 0              ; Untyped                                       ;
 ; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                       ;
 ; MAXIMIZE_SPEED         ; 5              ; Untyped                                       ;
-; CBXI_PARAMETER         ; lpm_divide_ucm ; Untyped                                       ;
+; CBXI_PARAMETER         ; lpm_divide_vcm ; Untyped                                       ;
 ; CARRY_CHAIN            ; MANUAL         ; Untyped                                       ;
 ; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                       ;
 ; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                    ;
@@ -630,37 +631,38 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 203                         ;
+; arriav_ff             ; 207                         ;
 ;     ENA               ; 31                          ;
 ;     ENA SCLR          ; 39                          ;
-;     SCLR              ; 94                          ;
+;     SCLR              ; 97                          ;
+;     SLD               ; 1                           ;
 ;     plain             ; 39                          ;
-; arriav_lcell_comb     ; 881                         ;
-;     arith             ; 423                         ;
-;         0 data inputs ; 36                          ;
-;         1 data inputs ; 158                         ;
+; arriav_lcell_comb     ; 947                         ;
+;     arith             ; 453                         ;
+;         0 data inputs ; 38                          ;
+;         1 data inputs ; 162                         ;
 ;         2 data inputs ; 13                          ;
-;         3 data inputs ; 131                         ;
-;         4 data inputs ; 80                          ;
+;         3 data inputs ; 145                         ;
+;         4 data inputs ; 90                          ;
 ;         5 data inputs ; 5                           ;
 ;     extend            ; 1                           ;
 ;         7 data inputs ; 1                           ;
-;     normal            ; 431                         ;
+;     normal            ; 467                         ;
 ;         1 data inputs ; 3                           ;
-;         2 data inputs ; 183                         ;
-;         3 data inputs ; 54                          ;
-;         4 data inputs ; 65                          ;
-;         5 data inputs ; 56                          ;
+;         2 data inputs ; 204                         ;
+;         3 data inputs ; 60                          ;
+;         4 data inputs ; 73                          ;
+;         5 data inputs ; 57                          ;
 ;         6 data inputs ; 70                          ;
 ;     shared            ; 26                          ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 24                          ;
-; arriav_mac            ; 2                           ;
-; boundary_port         ; 25                          ;
+; arriav_mac            ; 4                           ;
+; boundary_port         ; 27                          ;
 ; stratixv_ram_block    ; 12                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 26.70                       ;
-; Average LUT depth     ; 15.82                       ;
+; Max LUT depth         ; 28.90                       ;
+; Average LUT depth     ; 17.19                       ;
 +-----------------------+-----------------------------+
 
 
@@ -679,7 +681,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
-    Info: Processing started: Sun Apr  5 01:26:51 2026
+    Info: Processing started: Wed Apr  8 18:32:08 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off fpga-oscilliscope -c fpga-oscilliscope
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -715,25 +717,25 @@ Info (12021): Found 1 design units, including 1 entities, in source file dual_po
     Info (12023): Found entity 1: dual_port_ram File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/dual_port_ram.v Line: 40
 Warning (10236): Verilog HDL Implicit Net warning at top_vga.sv(195): created implicit net for "vsync" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/top_vga.sv Line: 195
 Warning (10236): Verilog HDL Implicit Net warning at top_vga.sv(196): created implicit net for "hsync" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/top_vga.sv Line: 196
-Warning (10236): Verilog HDL Implicit Net warning at fpga-oscilliscope.sv(195): created implicit net for "vsync" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 195
-Warning (10236): Verilog HDL Implicit Net warning at fpga-oscilliscope.sv(196): created implicit net for "hsync" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 196
+Warning (10236): Verilog HDL Implicit Net warning at fpga-oscilliscope.sv(200): created implicit net for "vsync" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 200
+Warning (10236): Verilog HDL Implicit Net warning at fpga-oscilliscope.sv(201): created implicit net for "hsync" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 201
 Info (12127): Elaborating entity "oscilliscope_top" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at fpga-oscilliscope.sv(78): truncated value with size 32 to match size of target (8) File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 78
-Info (12128): Elaborating entity "clkdiv" for hierarchy "clkdiv:c_1k" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 58
-Info (12128): Elaborating entity "clkdiv" for hierarchy "clkdiv:c_vga" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 66
-Info (12128): Elaborating entity "ltc2308" for hierarchy "ltc2308:ltc2308_0" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 101
+Warning (10230): Verilog HDL assignment warning at fpga-oscilliscope.sv(80): truncated value with size 32 to match size of target (8) File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 80
+Info (12128): Elaborating entity "clkdiv" for hierarchy "clkdiv:c_1k" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 60
+Info (12128): Elaborating entity "clkdiv" for hierarchy "clkdiv:c_vga" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 68
+Info (12128): Elaborating entity "ltc2308" for hierarchy "ltc2308:ltc2308_0" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 103
 Warning (10858): Verilog HDL warning at ltc2308.sv(34): object read used but never assigned File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/ltc2308.sv Line: 34
 Warning (10858): Verilog HDL warning at ltc2308.sv(34): object write used but never assigned File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/ltc2308.sv Line: 34
 Warning (10036): Verilog HDL or VHDL warning at ltc2308.sv(74): object "firstch" assigned a value but never read File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/ltc2308.sv Line: 74
 Warning (10036): Verilog HDL or VHDL warning at ltc2308.sv(74): object "lastch" assigned a value but never read File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/ltc2308.sv Line: 74
 Warning (10036): Verilog HDL or VHDL warning at ltc2308.sv(108): object "prevread" assigned a value but never read File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/ltc2308.sv Line: 108
-Info (12128): Elaborating entity "input_control" for hierarchy "input_control:input_0" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 114
-Info (12128): Elaborating entity "rotary_encoder" for hierarchy "input_control:input_0|rotary_encoder:level_enc" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/input_control.sv Line: 53
-Info (12128): Elaborating entity "button" for hierarchy "input_control:input_0|button:trigger_button" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/input_control.sv Line: 75
-Info (12128): Elaborating entity "trigger" for hierarchy "trigger:trig_0" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 127
+Info (12128): Elaborating entity "input_control" for hierarchy "input_control:input_0" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 118
+Info (12128): Elaborating entity "rotary_encoder" for hierarchy "input_control:input_0|rotary_encoder:level_enc" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/input_control.sv Line: 56
+Info (12128): Elaborating entity "button" for hierarchy "input_control:input_0|button:trigger_button" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/input_control.sv Line: 78
+Info (12128): Elaborating entity "trigger" for hierarchy "trigger:trig_0" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 131
 Warning (10230): Verilog HDL assignment warning at trigger.sv(46): truncated value with size 32 to match size of target (1) File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/trigger.sv Line: 46
-Info (12128): Elaborating entity "timebase" for hierarchy "timebase:time_0" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 136
-Info (12128): Elaborating entity "dual_port_ram" for hierarchy "dual_port_ram:dp_0" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 168
+Info (12128): Elaborating entity "timebase" for hierarchy "timebase:time_0" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 140
+Info (12128): Elaborating entity "dual_port_ram" for hierarchy "dual_port_ram:dp_0" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 172
 Info (12128): Elaborating entity "altsyncram" for hierarchy "dual_port_ram:dp_0|altsyncram:altsyncram_component" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/dual_port_ram.v Line: 91
 Info (12130): Elaborated megafunction instantiation "dual_port_ram:dp_0|altsyncram:altsyncram_component" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/dual_port_ram.v Line: 91
 Info (12133): Instantiated megafunction "dual_port_ram:dp_0|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/dual_port_ram.v Line: 91
@@ -759,13 +761,13 @@ Info (12133): Instantiated megafunction "dual_port_ram:dp_0|altsyncram:altsyncra
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_88r1.tdf
     Info (12023): Found entity 1: altsyncram_88r1 File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/db/altsyncram_88r1.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_88r1" for hierarchy "dual_port_ram:dp_0|altsyncram:altsyncram_component|altsyncram_88r1:auto_generated" File: c:/altera_lite/25.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "waveform_renderer" for hierarchy "waveform_renderer:wve0" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 187
-Warning (10230): Verilog HDL assignment warning at waveform_renderer.sv(35): truncated value with size 32 to match size of target (21) File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/waveform_renderer.sv Line: 35
+Info (12128): Elaborating entity "waveform_renderer" for hierarchy "waveform_renderer:wve0" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 192
 Warning (10230): Verilog HDL assignment warning at waveform_renderer.sv(36): truncated value with size 32 to match size of target (21) File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/waveform_renderer.sv Line: 36
 Warning (10230): Verilog HDL assignment warning at waveform_renderer.sv(37): truncated value with size 32 to match size of target (21) File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/waveform_renderer.sv Line: 37
-Warning (10230): Verilog HDL assignment warning at waveform_renderer.sv(38): truncated value with size 32 to match size of target (10) File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/waveform_renderer.sv Line: 38
-Warning (10230): Verilog HDL assignment warning at waveform_renderer.sv(70): truncated value with size 32 to match size of target (8) File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/waveform_renderer.sv Line: 70
-Info (12128): Elaborating entity "vgacontroller" for hierarchy "vgacontroller:vga0" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 200
+Warning (10230): Verilog HDL assignment warning at waveform_renderer.sv(38): truncated value with size 32 to match size of target (21) File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/waveform_renderer.sv Line: 38
+Warning (10230): Verilog HDL assignment warning at waveform_renderer.sv(39): truncated value with size 32 to match size of target (10) File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/waveform_renderer.sv Line: 39
+Warning (10230): Verilog HDL assignment warning at waveform_renderer.sv(71): truncated value with size 32 to match size of target (8) File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/waveform_renderer.sv Line: 71
+Info (12128): Elaborating entity "vgacontroller" for hierarchy "vgacontroller:vga0" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 205
 Warning (10230): Verilog HDL assignment warning at vgacontroller.sv(39): truncated value with size 32 to match size of target (10) File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/vgacontroller.sv Line: 39
 Warning (10230): Verilog HDL assignment warning at vgacontroller.sv(40): truncated value with size 32 to match size of target (10) File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/vgacontroller.sv Line: 40
 Warning (10230): Verilog HDL assignment warning at vgacontroller.sv(43): truncated value with size 32 to match size of target (1) File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/vgacontroller.sv Line: 43
@@ -775,35 +777,37 @@ Warning (10230): Verilog HDL assignment warning at horizontal_counter.sv(18): tr
 Info (12128): Elaborating entity "vertical_counter" for hierarchy "vgacontroller:vga0|vertical_counter:vcounter" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/vgacontroller.sv Line: 36
 Warning (10230): Verilog HDL assignment warning at vertical_counter.sv(16): truncated value with size 32 to match size of target (16) File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/vertical_counter.sv Line: 16
 Info (278001): Inferred 2 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "waveform_renderer:wve0|Div1" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/waveform_renderer.sv Line: 37
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "waveform_renderer:wve0|Div0" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/waveform_renderer.sv Line: 37
-Info (12130): Elaborated megafunction instantiation "waveform_renderer:wve0|lpm_divide:Div1" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/waveform_renderer.sv Line: 37
-Info (12133): Instantiated megafunction "waveform_renderer:wve0|lpm_divide:Div1" with the following parameter: File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/waveform_renderer.sv Line: 37
-    Info (12134): Parameter "LPM_WIDTHN" = "20"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "waveform_renderer:wve0|Div1" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/waveform_renderer.sv Line: 38
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "waveform_renderer:wve0|Div0" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/waveform_renderer.sv Line: 38
+Info (12130): Elaborated megafunction instantiation "waveform_renderer:wve0|lpm_divide:Div1" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/waveform_renderer.sv Line: 38
+Info (12133): Instantiated megafunction "waveform_renderer:wve0|lpm_divide:Div1" with the following parameter: File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/waveform_renderer.sv Line: 38
+    Info (12134): Parameter "LPM_WIDTHN" = "21"
     Info (12134): Parameter "LPM_WIDTHD" = "12"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_ucm.tdf
-    Info (12023): Found entity 1: lpm_divide_ucm File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/db/lpm_divide_ucm.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_4nh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_4nh File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/db/sign_div_unsign_4nh.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_e2f.tdf
-    Info (12023): Found entity 1: alt_u_div_e2f File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/db/alt_u_div_e2f.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_vcm.tdf
+    Info (12023): Found entity 1: lpm_divide_vcm File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/db/lpm_divide_vcm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_5nh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_5nh File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/db/sign_div_unsign_5nh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_g2f.tdf
+    Info (12023): Found entity 1: alt_u_div_g2f File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/db/alt_u_div_g2f.tdf Line: 23
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 9 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 992 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 8 input pins
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[0]" File: C:/Users/mespo/Desktop/School/SchoolThings/2025-2026/Term2/ELEX7660/fpga/fpga-oscilliscope.sv Line: 10
+Info (21057): Implemented 1063 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 10 input pins
     Info (21059): Implemented 17 output pins
-    Info (21061): Implemented 953 logic cells
+    Info (21061): Implemented 1020 logic cells
     Info (21064): Implemented 12 RAM segments
-    Info (21062): Implemented 2 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 24 warnings
+    Info (21062): Implemented 4 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 26 warnings
     Info: Peak virtual memory: 4903 megabytes
-    Info: Processing ended: Sun Apr  5 01:27:03 2026
-    Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:23
+    Info: Processing ended: Wed Apr  8 18:32:22 2026
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:32
 
 

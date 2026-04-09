@@ -17,17 +17,20 @@ module input_control
 	input logic trigger, // Trigger Button
    input logic enc1a, enc1b,// Encoder #1 (trigger level)
    input logic enc2a, enc2b, // Encoder #2 (timebase) 
+	input logic scale,
 
    // Outputs to oscilloscope
 	output logic [DATA_WIDTH-1:0] trig_level, // Trigger Level
    output logic [1:0] trig_mode, // Trigger Mode
-   output logic [DATA_WIDTH-1:0] timebase_sel // Timebase
+   output logic [DATA_WIDTH-1:0] timebase_sel, // Timebase
+	output logic [1:0] scale_level // Scale Level
 );
 
 	// PARAMETERS TO BE CHANGED
 	localparam DEFAULT_LEVEL    = 12'd0;    
 	localparam DEFAULT_TIMEBASE = 12'd0;    
 	localparam DEFAULT_MODE     = 2'b0;     
+	localparam DEFAULT_SCALE     = 2'b1; 
 
 	localparam MAX_TRIGGER = 12'd4000;
 	localparam MIN_TRIGGER = 12'd0;
@@ -73,6 +76,15 @@ module input_control
 		.button(trigger),
 		.pressed(trigger_p)
 	);
+	
+	logic scale_p; //Trigger Button Pressed
+	button
+	scale_button (
+		.clk(clk),
+		.reset(reset),
+		.button(scale),
+		.pressed(scale_p)
+	);
 
 	// Registers
 	always_ff @(posedge clk) begin
@@ -81,7 +93,8 @@ module input_control
 		if (reset) begin
 			trig_mode <= DEFAULT_MODE;
 			trig_level <= DEFAULT_LEVEL;
-			timebase_sel   <= DEFAULT_TIMEBASE;
+			timebase_sel <= DEFAULT_TIMEBASE;
+			scale_level <= DEFAULT_SCALE;
 		end 
 
 		else begin
@@ -89,6 +102,10 @@ module input_control
 		// Run through trigger modes
 		if (trigger_p)
 			trig_mode <= trig_mode + 1'b1;
+			
+		if (scale_p)
+			scale_level <= scale_level == 2'd1 ? 2'd2 :
+								scale_level == 2'd2 ? 2'd3 : 2'd1;
 
 		// Adjust trigger level
 		if(level_up)

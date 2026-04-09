@@ -15,7 +15,8 @@ module waveform_renderer
 	// Extras
 	input logic [DATA_WIDTH-1:0] trig_level,
 	input logic [1:0] trig_mode,
-	input logic [DATA_WIDTH-1:0] time_scale
+	input logic [DATA_WIDTH-1:0] time_scale,
+	input logic [1:0] scale_level
    
 );
 	 
@@ -32,7 +33,7 @@ module waveform_renderer
 	localparam VIN_MIN = 0;
 	function logic [9:0] scale (logic [DATA_WIDTH-1:0] data);
 	   logic [20:0] temp;
-		temp = (data - VIN_MIN);
+		temp = (data - VIN_MIN)*scale_level;
 		temp = temp *(Y_BOT - Y_TOP);
 		temp = temp / (VIN_MAX - VIN_MIN);
 		scale = Y_BOT - temp;
