@@ -96,7 +96,7 @@ module waveform_renderer
 		// ---------------- Waveform
 		if ((xpixel > X_LEFT && xpixel < X_RIGHT && ypixel > Y_TOP && ypixel < Y_BOT) &&
 			(ypixel == scaled_volt || ypixel == scaled_volt - 1))
-			outputRGB = 3'b010; // waveform line -> Green
+			outputRGB = 3'b011; // waveform line -> Green
 	end
  
 endmodule

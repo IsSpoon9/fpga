@@ -7,6 +7,7 @@ module top_vga (
 		input  logic enc2a, enc2b, // Encoder #2 (timebase) 
 		//VGA
 		output logic [13:0] GPIO_0,
+		input logic [1:0] KEY,
 		// ADC
 		input  logic ADC_SDO,
 		output logic ADC_CONVST, ADC_SDI, ADC_SCK 
@@ -30,6 +31,7 @@ module top_vga (
 	logic [DATA_WIDTH-1:0] trig_level;
 	logic [1:0] trig_mode;
 	logic [DATA_WIDTH-1:0] timebase_sel; // Can change
+	logic [1:0] scale_level;
 	
 	// Trigger
 	logic trigger_fire;
@@ -108,9 +110,11 @@ module top_vga (
 		.trigger(trigger),
 		.enc1a(enc1a), .enc1b(enc1b),// Encoder #1 (trigger level)
 		.enc2a(enc2a),	.enc2b(enc2b), // Encoder #2 (timebase) 
+		.scale(KEY[1]),
 		.trig_level(trig_level),
 		.trig_mode(trig_mode),
-		.timebase_sel(timebase_sel)
+		.timebase_sel(timebase_sel),
+		.scale_level(scale_level)
 	);
 	
 	// Computation ------------------------------------------
@@ -183,7 +187,8 @@ module top_vga (
 		// Non Essential
 		.trig_level(trig_level),
 		.trig_mode(trig_mode),
-		.time_scale(timebase_sel)
+		.time_scale(timebase_sel),
+		.scale_level(scale_level)
 	);
 	
 	// Controls VGA Port - does the actual displaying
@@ -199,5 +204,6 @@ module top_vga (
 		.gpio(GPIO_0)
 	);
 	
-endmodule           
+endmodule                                                         
+
 

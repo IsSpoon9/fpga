@@ -1,12 +1,12 @@
-Fitter Status : Successful - Wed Apr  8 18:32:51 2026
+Fitter Status : Successful - Mon Apr 13 13:47:43 2026
 Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 Revision Name : fpga-oscilliscope
 Top-level Entity Name : oscilliscope_top
 Family : Cyclone V
 Device : 5CSEMA4U23C6
 Timing Models : Final
-Logic utilization (in ALMs) : 516 / 15,880 ( 3 % )
-Total registers : 208
+Logic utilization (in ALMs) : 515 / 15,880 ( 3 % )
+Total registers : 207
 Total pins : 27 / 314 ( 9 % )
 Total virtual pins : 0
 Total block memory bits : 264 / 2,764,800 ( < 1 % )
